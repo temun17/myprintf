@@ -20,6 +20,12 @@
 ** ------------------------- Structure Definition ------------------------------
 */
 
+struct	convert
+{
+	char *opr;
+	int	(*f)(va_list);
+};
+
 typedef struct	s_infoinput
 {
 	int	space;
@@ -66,7 +72,8 @@ typedef struct s_printf_flag
 ** -----------------------------------------------------------------------------
 */
 
-int						ft_printf(const char *format, ...);
+int					ft_printf(const char *format, ...);
+int					parser(const char *format, conver_t f_list[], va_list args);
 
 /*
 ** -------------------------- Parsing Functions --------------------------------
