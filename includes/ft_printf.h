@@ -81,6 +81,10 @@ int				print_number(va_list);
 int				print_percent(va_list);
 int				print_string(va_list);
 int				print_unsigned_int(unsigned int);
+int				print_binary(va_list);
+int				print_octal(va_list);
+int				print_hex(va_list);
+int				print_HEX(va_list);
 
 /*
 ** -------------------------- Parsing Functions --------------------------------

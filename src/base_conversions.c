@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   base_conversions.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/28 23:11:32 by atemunov          #+#    #+#             */
-/*   Updated: 2018/05/29 14:35:57 by atemunov         ###   ########.fr       */
+/*   Created: 2018/05/29 14:44:14 by atemunov          #+#    #+#             */
+/*   Updated: 2018/05/29 14:58:36 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int	main()
-{
-	int i;
-	char *temp;
+/**
+ **	print_binary - Converts number from base 10 to binary
+ **
+ **/
 
-	temp = "Hello,";
-		
-	i = 100;
-	ft_printf("%s the value of i is %d\n", temp, i);
 
-	return 0;
-}
+
+/*
+ ** print_octal - Converts the numeric value of a number in an octal base
+ **
+ **/

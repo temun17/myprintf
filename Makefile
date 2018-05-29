@@ -6,7 +6,7 @@
 #    By: atemunov <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/05/28 23:06:34 by atemunov          #+#    #+#              #
-#    Updated: 2018/05/28 23:06:37 by atemunov         ###   ########.fr        #
+#    Updated: 2018/05/29 14:59:59 by atemunov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,28 +16,36 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
-INCLUDES = ./libft/libft.a \
-		./includes/ft_printf.h \
+INCLUDES = ./includes/ft_printf.h
+
 
 SRC = src/main.c \
-	src/ft_printf.c \
+	  src/ft_printf.c \
+	  src/parser.c \
+	  src/modifiers_and_specifiers.c \
+	  src/base_conversions.c \
 
-OBJS = *.o
 
-libft.a:
-	make -C libft
+OBJS = $(patsubst %.c, %.o, $(SRC))
+
+LIBFT = libft
 
 all : $(NAME)
 
-$(NAME): $(OBJS) libft.a
-	$(CC) $(INCLUDES) $(SRC) -o $(NAME)
-	@echo "Successfully created libftprintf.a"
+$(NAME): 
+		make -C $(LIBFT)
+		cp $(LIBFT)/libft.a ./$(NAME)
+		$(CC) $(CFLAGS) $(INCLUDES) -c $(SRC)
+		ar rc $(NAME) $(OBJS)
+		ranlib $(NAME)
+		@echo "Successfully created libftprintf.a"
 
 clean:
-	make -C libft fclean
-	@rm -rf $(OBJS)
+	make clean -C $(LIBFT)/
+	@rm -rf $(OBJS) 
 
 fclean: clean
-	rm -rf $(NAME)
+	make fclean -C $(LIBFT)/
+	rm -rf $(NAME) *.o
 
 re: clean all

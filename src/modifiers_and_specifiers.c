@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/28 23:17:47 by atemunov          #+#    #+#             */
-/*   Updated: 2018/05/29 00:20:47 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/05/29 14:37:12 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int	print_int(va_list list)
 	return (nbr_len);
 }
 
-int	print_percent(va_list list)
+int	print_percent()
 {
 	ft_putchar('%');
 	return (1);
