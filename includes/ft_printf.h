@@ -1,5 +1,5 @@
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#ifndef PRINTF_H
+# define PRINTF_H
 
 /*
 ** -------------------------- External Headers ---------------------------------
@@ -25,6 +25,8 @@ struct	convert
 	char *opr;
 	int	(*f)(va_list);
 };
+
+typedef struct convert conver_t;
 
 typedef struct	s_infoinput
 {
@@ -72,28 +74,37 @@ typedef struct s_printf_flag
 ** -----------------------------------------------------------------------------
 */
 
-int					ft_printf(const char *format, ...);
-int					parser(const char *format, conver_t f_list[], va_list args);
+int				ft_printf(const char *restrict format, ...);
+int				print_char(va_list);
+int				print_int(va_list);
+int				print_number(va_list);
+int				print_percent(va_list);
+int				print_string(va_list);
+int				print_unsigned_int(unsigned int);
 
 /*
 ** -------------------------- Parsing Functions --------------------------------
 */
 
+int				parser(const char *format, conver_t f_list[], va_list args);
 
 /*
 ** --------------------------------  Flags -------------------------------------
 */
 
-void	ft_flag_plus(long n, t_infoinput *info, t_passinfo *pass);
-void	ft_flag_minus(long n, t_infoinput *info, t_passinfo *pass);
-void	ft_flag_space(long n, t_infoinput *info, t_passinfo *pass);
-void	ft_flag_hash(long n, t_infoinput *info, t_passinfo *pass);
-void	ft_flag_zero(long n, t_infoinput *info, t_passinfo *pass);
-void	ft_flag_period(long n, t_infoinput *info, t_passinfo *pass);
+void			ft_flag_plus(long n, t_infoinput *info, t_passinfo *pass);
+void			ft_flag_minus(long n, t_infoinput *info, t_passinfo *pass);
+void			ft_flag_space(long n, t_infoinput *info, t_passinfo *pass);
+void			ft_flag_hash(long n, t_infoinput *info, t_passinfo *pass);
+void			ft_flag_zero(long n, t_infoinput *info, t_passinfo *pass);
+void			ft_flag_period(long n, t_infoinput *info, t_passinfo *pass);
 
 /*
-** ---------------------- Strings & Chars Functions ----------------------------
+** ------------------------- Helping Functions --------------------------------
 */
+
+char			_memcpy(char *dst, char *src, unsigned int nbr);
+unsigned int	base_length(unsigned int nbr, int base);
 
 
 

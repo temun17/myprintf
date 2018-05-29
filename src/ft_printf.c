@@ -5,13 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/27 21:30:03 by atemunov          #+#    #+#             */
-/*   Updated: 2018/05/27 22:15:38 by atemunov         ###   ########.fr       */
+/*   Created: 2018/05/28 23:55:21 by atemunov          #+#    #+#             */
+/*   Updated: 2018/05/29 00:14:08 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/ft_printf.h"
-
+#include "../includes/ft_printf.h"
 
 /*
 ** ft_printf() takes a va_list of arguments and converts each
@@ -19,7 +18,7 @@
 ** formated string (Check man 3 printf)
 */
 
-int		ft_printf(const char format, ...)
+int		ft_printf(const char *restrict format, ...)
 {
 	int		chars_printed;
 	conver_t f_list[] = {
@@ -27,16 +26,16 @@ int		ft_printf(const char format, ...)
 		{"i", print_int},
 		{"c", print_char},
 		{"s", print_string},
-		{"b", print_binary},
-		{"u", unsigned_int},
-		{"o", print_octal},
-		{"x", print_hex},
-		{"X", print_HEX},
-		{"f", print_float},
+	//	{"b", print_binary},
+	//	{"u", unsigned_int},
+	//	{"o", print_octal},
+	//	{"x", print_hex},
+	//	{"X", print_HEX},
+	//	{"f", print_float},
 		{"%", print_percent},
-		{"b", print_boolean},
-		{"e", print_scientific_noation},
-		{"h", print_hash}, // ex. "hello" = 5e918d2
+	//	{"b", print_boolean},
+	//	{"e", print_scientific_noation},
+	//	{"h", print_hash}, // ex. "hello" = 5e918d2
 		{NULL, NULL}
 	};
 	va_list args;
@@ -46,7 +45,7 @@ int		ft_printf(const char format, ...)
 
 	va_start(args, format);
 	/** Calling parser function **/
-	chars_printed = parser(format, f_list, &args);
+	chars_printed = parser(format, f_list, args);
 	va_end(args);
 	return (chars_printed);
 }

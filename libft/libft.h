@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/19 12:36:03 by atemunov          #+#    #+#             */
-/*   Updated: 2018/04/11 00:59:11 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/05/28 23:50:25 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ typedef struct	s_list
 	struct s_list	*next;
 }				t_list;
 
-void			ft_putchar(wchar_t c);
+int				ft_putchar(wchar_t c);
 void			ft_putchar_fd(char c, int fd);
 void			ft_putstr(const char *str);
 void			ft_putstr_fd(const char *str, int fd);

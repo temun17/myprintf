@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/19 12:44:32 by atemunov          #+#    #+#             */
-/*   Updated: 2018/05/28 23:50:10 by atemunov         ###   ########.fr       */
+/*   Created: 2018/05/28 23:11:32 by atemunov          #+#    #+#             */
+/*   Updated: 2018/05/29 00:47:34 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/ft_printf.h"
 
-int		ft_putchar(wchar_t c)
+int	main()
 {
-	write(1, &c, 1);
+	int i;
+	char *temp;
+
+	temp = "Hello,";
+		
+	i = 100;
+	printf("%s the value of i is %d\n", temp, i);
+
 	return 0;
 }
