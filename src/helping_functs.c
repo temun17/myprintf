@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/29 16:57:04 by atemunov          #+#    #+#             */
-/*   Updated: 2018/05/29 17:19:06 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/05/30 15:47:32 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,25 @@ unsigned int	base_length(unsigned int nbr, int base)
 		i++;
 	}
 	return (i);
+}
+
+char			*str_rev(char *str)
+{
+	int 	i;
+	int 	len;
+	char	temp;
+
+	len = 0;
+	while (str[len] != '\0')
+	{
+		len++;
+	}
+	i = -1;
+	while (++i < --len)
+	{
+		temp = str[i];
+		str[i] = str[len];
+		str[len] = temp;
+	}
+	return (str);
 }

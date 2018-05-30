@@ -6,7 +6,7 @@
 #    By: atemunov <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/05/28 23:06:34 by atemunov          #+#    #+#              #
-#    Updated: 2018/05/30 14:41:50 by atemunov         ###   ########.fr        #
+#    Updated: 2018/05/30 14:59:38 by atemunov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,8 +23,7 @@ SRC = src/main.c \
 	  src/parser.c \
 	  src/modifiers_and_specifiers.c \
 	  src/base_conversions.c \
-	  src/helping_functs.c \
-	  src/print_nbr.c
+	  src/helping_functs.c 
 
 OBJS = $(SRC:.c=.o)
 
@@ -49,4 +48,3 @@ fclean: clean
 	rm -rf $(NAME) *.o
 
 re: clean all
-

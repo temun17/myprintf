@@ -110,6 +110,7 @@ void			ft_flag_period(long n, t_infoinput *info, t_passinfo *pass);
 char			_memcpy(char *dst, char *src, unsigned int nbr);
 unsigned int	base_length(unsigned int nbr, int base);
 void			write_string(char *str);
+char			*str_rev(char *str);
 
 
 
