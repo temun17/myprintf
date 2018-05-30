@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/27 22:15:53 by atemunov          #+#    #+#             */
-/*   Updated: 2018/05/29 00:19:19 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/05/29 23:13:16 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,13 @@ int	parser(const char *format, conver_t f_list[], va_list args)
 			}
 			i++;
 		}
-		if (f_list[j].opr == NULL && format[i + 1] != ' ')
+		if (f_list[j].opr == NULL && format[i + 1] != '%')
 		{
 			if (format[i + 1] != '\0')
 			{
-				ft_putchar(format[i]);
+				//ft_putchar(format[i]);
 				ft_putchar(format[i + 1]);
+				//printf("here = [%c]\n", format[i + 1]);
 				chars_printed = chars_printed + 2;
 			}
 			else
