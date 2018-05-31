@@ -88,7 +88,7 @@ int				print_hex(va_list);
 int				print_HEX(va_list);
 
 /*
-** -------------------------- Parsing Functions --------------------------------
+** -------------------------- Parsing Function --------------------------------
 */
 
 int				parser(const char *format, conver_t f_list[], va_list args);
