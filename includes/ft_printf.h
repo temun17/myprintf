@@ -9,6 +9,7 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include <stdio.h>
+# include <math.h>
 
 
 /*
@@ -86,6 +87,7 @@ int				print_octal(va_list);
 int				print_OCTAL(va_list);
 int				print_hex(va_list);
 int				print_HEX(va_list);
+int				check_hex(int, char);
 
 /*
 ** -------------------------- Parsing Function --------------------------------

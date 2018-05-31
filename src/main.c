@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/28 23:11:32 by atemunov          #+#    #+#             */
-/*   Updated: 2018/05/30 17:28:57 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/05/31 16:20:29 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,11 @@ int	main()
 	ft_printf("%%\n");
 	// printf("%o\n", 1000);
 	// printf("%O\n", 1000);
-	ft_printf("%o\n", 1000);
-	ft_printf("%O\n", 1000);
+	// printf("%x\n", 10);
+	// printf("%X\n", 10);
+	ft_printf("%x\n", 11);
+	ft_printf("%X\n", 11);
+	ft_printf("%o\n", 1000000);
+	ft_printf("%O\n", 1000000);
 	return 0;
 }

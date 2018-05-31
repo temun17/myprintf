@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/29 14:44:14 by atemunov          #+#    #+#             */
-/*   Updated: 2018/05/30 17:42:36 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/05/31 16:20:15 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,13 +99,7 @@ int	print_octal(va_list list)
 	}
 	num_rep[i] = '\0';
 	num_rep = str_rev(num_rep);
-//	if (num_rep == NULL)
-//	{
-//		return (-1);
-//	}
 	write_string(num_rep);
-//	free(num_rep);
-//	free(str_rev);
 	return (length);
 }
 
@@ -146,5 +140,104 @@ int	print_OCTAL(va_list list)
 	num_rep[i] = '\0';
 	num_rep = str_rev(num_rep);
 	write_string(num_rep);
+	return (length);
+}
+
+/*
+ ** print_hex - Prints a representation of a decimal integer to a lowercase character
+ **
+ **/
+
+int check_hex(int n, char x)
+{
+	char *hex = "abcdefghijklmnopqrstuvwxyz";
+	char *HEX = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	
+	n -= 10;
+	if (x == 'x')
+		return (hex[n]);
+	else
+		return (HEX[n]);
+	return 0;
+}
+
+int print_hex(va_list list)
+{
+	unsigned int 	nbr;
+	int				length;
+	char 			*hex_deci;
+	char 			temp;
+
+	nbr = va_arg(list, unsigned int);
+
+	if (nbr == 0)
+	{
+		return (ft_putchar('0'));
+	}
+	else if (nbr < 1)
+	{
+		return (-1);
+	}
+	length = base_length(nbr, 16);
+	hex_deci = malloc(sizeof(char) * length + 1);
+	if (hex_deci == NULL)
+	{
+		return (-1);
+	}
+	length = 0;
+	while (nbr > 0)
+	{
+		temp = nbr % 16;
+		if (temp < 10)
+		{
+			temp = temp + 48;
+		}
+		else
+		{
+			temp = temp + 87;
+		}
+		hex_deci[length++] = temp;
+		nbr /= 16;
+	}
+	hex_deci[length] = '\0';
+	// temp = str_rev(hex_deci);
+	write_string(hex_deci);
+	return (length);
+}
+
+int	print_HEX(va_list list)
+{
+	unsigned int	nbr;
+	int				length;
+	char			*hex_deci;
+	char			temp;
+
+	nbr = va_arg(list, unsigned int);
+
+	if (nbr == 0)
+	{
+		return (ft_putchar('0'));
+	}
+	else if (nbr < 1)
+	{
+		return (-1);
+	}
+	length = 0;
+	while (nbr > 0)
+	{
+		temp = nbr % 16;
+		if (temp < 10)
+		{
+			temp = temp + 48;
+		}
+		else
+		{
+			temp = temp + 55;
+		}
+		hex_deci[length++] = temp;
+		nbr /= 16;
+	}
+	hex_deci[length] = '\0';
+	write_string(hex_deci);
 	return (length);
 }

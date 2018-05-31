@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/28 23:55:21 by atemunov          #+#    #+#             */
-/*   Updated: 2018/05/30 17:41:12 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/05/31 16:18:45 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /*
 ** ft_printf() takes a va_list of arguments and converts each
-** variable and all teh necessary parameter to print the 
+** variable and all the necessary parameters to print the 
 ** formated string (Check man 3 printf)
 */
 
@@ -34,8 +34,8 @@ int		ft_printf(const char *restrict format, ...)
 	//	{"U", unsigned_INT},
 		{"o", print_octal},
 		{"O", print_OCTAL},
-	//	{"x", print_hex},
-	//	{"X", print_HEX},
+		{"x", print_hex},
+		{"X", print_HEX},
 	//	{"f", print_float},
 		{"%", print_percent},
 	//	{"b", print_boolean},
