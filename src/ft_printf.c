@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/28 23:55:21 by atemunov          #+#    #+#             */
-/*   Updated: 2018/05/30 15:05:43 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/05/30 17:41:12 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,17 @@ int		ft_printf(const char *restrict format, ...)
 	int		chars_printed;
 	conver_t f_list[] = {
 		{"d", print_int},
+		{"D", print_int},
 		{"i", print_int},
 		{"c", print_char},
 		{"s", print_string},
+	//	{"S", print_unicode},
 		{"b", print_binary},
+	//	{"p", print_memory_location},
 	//	{"u", unsigned_int},
-	//	{"o", print_octal},
+	//	{"U", unsigned_INT},
+		{"o", print_octal},
+		{"O", print_OCTAL},
 	//	{"x", print_hex},
 	//	{"X", print_HEX},
 	//	{"f", print_float},

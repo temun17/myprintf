@@ -83,6 +83,7 @@ int				print_string(va_list);
 int				print_unsigned_int(unsigned int);
 int				print_binary(va_list);
 int				print_octal(va_list);
+int				print_OCTAL(va_list);
 int				print_hex(va_list);
 int				print_HEX(va_list);
 

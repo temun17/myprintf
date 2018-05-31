@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/28 23:17:47 by atemunov          #+#    #+#             */
-/*   Updated: 2018/05/29 14:37:12 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/05/30 16:52:43 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ int	print_string(va_list list)
 	}
 	return (i);
 }
-
+		
 int	print_char(va_list list)
 {
 	ft_putchar(va_arg(list, int));
