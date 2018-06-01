@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/28 23:55:21 by atemunov          #+#    #+#             */
-/*   Updated: 2018/05/31 21:46:26 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/06/01 00:18:53 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int				ft_printf(const char *format, ...)
 		{"s", print_string},
 	/**	{"S", print_unicode}, **/
 		{"b", print_binary},
-	/**	{"p", print_memory_location}, **/
+		{"p", print_memory_address},
 		{"u", unsigned_int},
 		{"U", unsigned_INT},
 		{"o", print_octal},

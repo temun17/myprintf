@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/31 21:25:03 by atemunov          #+#    #+#             */
-/*   Updated: 2018/05/31 21:32:30 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/06/01 00:20:16 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ int				unsigned_int(va_list);
 int				unsigned_INT(va_list);
 int				print_percent();
 int				print_string(va_list);
+int				print_memory_address(va_list);
 int				print_unsigned_int(unsigned int);
 int				print_binary(va_list);
 int				print_octal(va_list);
