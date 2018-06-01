@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/29 14:44:14 by atemunov          #+#    #+#             */
-/*   Updated: 2018/05/31 16:59:48 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/05/31 17:20:19 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -223,6 +223,7 @@ int	print_HEX(va_list list)
 		return (-1);
 	}
 	length = 0;
+	hex_deci = malloc(sizeof(char) * length + 1);
 	while (nbr > 0)
 	{
 		temp = nbr % 16;
