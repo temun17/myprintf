@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/28 23:11:32 by atemunov          #+#    #+#             */
-/*   Updated: 2018/05/31 22:43:26 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/05/31 23:29:34 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,8 @@ int	main(void)
 	ft_printf("%b\n", 2);
 	ft_printf("%i\n", j);
 	ft_printf("%%\n");
-	ft_printf("%c\n", 'a');
+	ft_printf("%c\n", 'A');
 	ft_printf("%C\n", 'a');
-	ft_printf("%s\n", "42Kathisd asdfasdg");
 	// printf("%c\n", 'a');
 	// printf("%C\n", 'a');
 	ft_printf("%u\n", 42);
