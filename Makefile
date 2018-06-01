@@ -6,7 +6,7 @@
 #    By: atemunov <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/05/28 23:06:34 by atemunov          #+#    #+#              #
-#    Updated: 2018/05/31 22:35:11 by atemunov         ###   ########.fr        #
+#    Updated: 2018/06/01 14:47:27 by atemunov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,8 @@ OBJS = $(SRC:.c=.o)
 
 LIBFT = libft
 
+READY = @echo "\033[0;32mft_printf ready to use!"
+
 all : $(NAME)
 
 $(NAME):
@@ -39,6 +41,7 @@ $(NAME):
 	ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)
 	@echo "Successfully created libftprintf.a"
+	$(READY)
 
 clean:
 	make clean -C $(LIBFT)/
