@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/29 14:44:14 by atemunov          #+#    #+#             */
-/*   Updated: 2018/05/31 16:20:15 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/05/31 16:59:48 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -187,21 +187,21 @@ int print_hex(va_list list)
 	length = 0;
 	while (nbr > 0)
 	{
-		temp = nbr % 16;
-		if (temp < 10)
+		temp = nbr % 16; // Divide the decimal number by 16 and store into variable temp
+		if (temp < 10)  // If the remainder is < 10, insert (48 + temp) in array.
 		{
 			temp = temp + 48;
 		}
 		else
 		{
-			temp = temp + 87;
+			temp = temp + 87; // remainder is greater or equal to 10 then insert (87 + temp) lowercase.
 		}
 		hex_deci[length++] = temp;
-		nbr /= 16;
+		nbr /= 16; // Divide the number by 16
 	}
 	hex_deci[length] = '\0';
 	// temp = str_rev(hex_deci);
-	write_string(hex_deci);
+	write_string(hex_deci); // Print out array
 	return (length);
 }
 

@@ -6,30 +6,30 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/28 23:17:47 by atemunov          #+#    #+#             */
-/*   Updated: 2018/05/30 16:52:43 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/05/31 17:08:40 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int print_unsigned_int(unsigned int nbr)
+int print_unsigned_int(unsigned int n)
 {
 	int 			div; // Divides the numerator by the denominator
 	int 			len;
-	unsigned int 	num;
+	unsigned int 	nbr;
 
 	div = 1;
 	len = 0;
 
-	num = nbr;
-	while (num / div > 9)
+	nbr = n;
+	while (nbr / div > 9)
 	{
 		div = div * 10;
 	}
 	while (div != 0)
 	{
-		len = (len + ft_putchar('0' + num / div));
-		num %= div;
+		len = (len + ft_putchar('0' + nbr / div));
+		nbr %= div;
 		div = (div / 10);
 	}
 	return len;
@@ -37,15 +37,28 @@ int print_unsigned_int(unsigned int nbr)
 
 int unsigned_int(va_list list)
 {
-	int				num;
+	int				nbr;
 
-	num = va_arg(list, unsigned int);
+	nbr = va_arg(list, unsigned int);
 
-	if (num == 0)
-		return (print_unsigned_int(num));
-	if (num < 1)
+	if (nbr == 0)
+		return (print_unsigned_int(nbr));
+	if (nbr < 1)
 		return (-1);
-	return (print_unsigned_int(num));
+	return (print_unsigned_int(nbr));
+}
+
+int unsigned_INT(va_list list)
+{
+	int				nbr;
+
+	nbr = va_arg(list, unsigned int);
+
+	if (nbr == 0)
+		return (print_unsigned_int(nbr));
+	if (nbr < 1)
+		return (-1);
+	return (print_unsigned_int(nbr));
 }
 
 int print_number(va_list args)
