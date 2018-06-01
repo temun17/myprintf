@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/28 23:11:32 by atemunov          #+#    #+#             */
-/*   Updated: 2018/06/01 15:37:28 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/06/01 15:45:42 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	main(void)
 	ft_printf("%p\n", &a);
 	// printf("%c\n", 'a');
 	// printf("%C\n", 'a');
-	printf("%S\n", 130);
+	printf("%S\n", L"Hello");
 	ft_printf("%u\n", 42);
 	ft_printf("%U\n", 42);
 	ft_printf("%x\n", 11);
