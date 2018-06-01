@@ -6,7 +6,7 @@
 #    By: atemunov <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/05/28 23:06:34 by atemunov          #+#    #+#              #
-#    Updated: 2018/05/30 14:59:38 by atemunov         ###   ########.fr        #
+#    Updated: 2018/05/31 21:03:34 by atemunov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,4 +47,4 @@ fclean: clean
 	make fclean -C $(LIBFT)/
 	rm -rf $(NAME) *.o
 
-re: clean all
+re: fclean all
