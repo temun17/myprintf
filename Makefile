@@ -6,7 +6,7 @@
 #    By: atemunov <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/05/28 23:06:34 by atemunov          #+#    #+#              #
-#    Updated: 2018/05/31 21:03:34 by atemunov         ###   ########.fr        #
+#    Updated: 2018/05/31 22:35:11 by atemunov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ all : $(NAME)
 $(NAME):
 	make -C $(LIBFT)
 	$(CC) $(CFLAGS) -I $(INCLUDES) -c $(SRC)
+	cp libft/libft.a libftprintf.a
 	mv *.o src/
 	ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)

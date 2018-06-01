@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/29 16:57:04 by atemunov          #+#    #+#             */
-/*   Updated: 2018/05/31 19:47:03 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/05/31 21:47:02 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ unsigned int	base_length(unsigned int nbr, int base)
 
 char			*str_rev(char *str)
 {
-	int 	i;
-	int 	len;
+	int	i;
+	int len;
 	char	temp;
 
 	len = 0;

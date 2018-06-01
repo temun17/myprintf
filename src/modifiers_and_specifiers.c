@@ -6,22 +6,21 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/28 23:17:47 by atemunov          #+#    #+#             */
-/*   Updated: 2018/05/31 19:53:28 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/05/31 22:06:10 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 #include "../libft/libft.h"
 
-int print_unsigned_int(unsigned int n)
+int	print_unsigned_int(unsigned int n)
 {
-	int 			div; // Divides the numerator by the denominator
-	int 			len;
-	unsigned int 	nbr;
+	int				div; // Divides the numerator by the denominator
+	int				len;
+	unsigned int	nbr;
 
 	div = 1;
 	len = 0;
-
 	nbr = n;
 	while (nbr / div > 9)
 	{
@@ -33,15 +32,14 @@ int print_unsigned_int(unsigned int n)
 		nbr %= div;
 		div = (div / 10);
 	}
-	return len;
+	return (len);
 }
 
-int unsigned_int(va_list list)
+int	unsigned_int(va_list list)
 {
 	int				nbr;
 
 	nbr = va_arg(list, unsigned int);
-
 	if (nbr == 0)
 		return (print_unsigned_int(nbr));
 	if (nbr < 1)
@@ -49,12 +47,11 @@ int unsigned_int(va_list list)
 	return (print_unsigned_int(nbr));
 }
 
-int unsigned_INT(va_list list)
+int	unsigned_INT(va_list list)
 {
 	int				nbr;
 
 	nbr = va_arg(list, unsigned int);
-
 	if (nbr == 0)
 		return (print_unsigned_int(nbr));
 	if (nbr < 1)
@@ -62,17 +59,16 @@ int unsigned_INT(va_list list)
 	return (print_unsigned_int(nbr));
 }
 
-int print_number(va_list args)
+int	print_number(va_list args)
 {
-	int 			nbr;
-	int 			div;
-	int 			len;
-	unsigned int 	num;
+	int				nbr;
+	int				div;
+	int				len;
+	unsigned int	num;
 
 	nbr = va_arg(args, int);
 	div = 1;
 	len = 0;
-
 	if (nbr < 0)
 	{
 		len = (len + ft_putchar('-'));
@@ -81,9 +77,7 @@ int print_number(va_list args)
 	else
 		num = nbr;
 	while (num / div > 9)
-	{
 		div = (div * 10);
-	}
 	while (div != 0)
 	{
 		len = (len + ft_putchar('0' + num / div));
@@ -91,7 +85,7 @@ int print_number(va_list args)
 		div = (div / 10);
 	}
 	return (len);
-}	
+}
 
 int	print_int(va_list list)
 {
@@ -101,7 +95,7 @@ int	print_int(va_list list)
 	return (nbr_len);
 }
 
-int	print_percent()
+int	print_percent(void)
 {
 	ft_putchar('%');
 	return (1);
@@ -109,8 +103,8 @@ int	print_percent()
 
 int	print_string(va_list list)
 {
-	int 	i;
-	char 	*str;
+	int			i;
+	char		*str;
 
 	i = 0;
 	str = va_arg(list, char *);
@@ -123,7 +117,7 @@ int	print_string(va_list list)
 	}
 	return (i);
 }
-		
+
 int	print_char(va_list list)
 {
 	ft_putchar(va_arg(list, int));

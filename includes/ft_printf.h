@@ -1,5 +1,17 @@
-#ifndef PRINTF_H
-# define PRINTF_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/05/31 21:25:03 by atemunov          #+#    #+#             */
+/*   Updated: 2018/05/31 21:32:30 by atemunov         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
 /*
 ** -------------------------- External Headers ---------------------------------
@@ -11,71 +23,66 @@
 # include <stdio.h>
 # include <math.h>
 
-
 /*
 ** -------------------------- Macros Definition --------------------------------
 */
-
-
 /*
 ** ------------------------- Structure Definition ------------------------------
 */
 
-struct	convert
+struct			convert
 {
 	char *opr;
 	int	(*f)(va_list);
 };
 
-typedef struct convert conver_t;
+typedef struct 	convert 	conver_t;
 
 typedef struct	s_infoinput
 {
-	int	space;
-	int	minus;
-	int	hash;
-	int	plus;
-	int	zero;
-	int	precision;
-	char	conversion;
-	char	*modifier;
-	int	f;
-	int	p;
-	int	c;
-	int	m;
-}		t_infoinput;
+	int			space;
+	int			minus;
+	int			hash;
+	int			plus;
+	int			zero;
+	int			precision;
+	char		conversion;
+	char		*modifier;
+	int			f;
+	int			p;
+	int			c;
+	int			m;
+}				t_infoinput;
 
 typedef struct	s_passinfo
 {
-	int	n;
-	int	numlen;
-	int	strlen;
-	int	width;
-	char	*stuff;
-	int	final_count;
-	int	count;
-}		t_passinfo;
+	int			n;
+	int			numlen;
+	int			strlen;
+	int			width;
+	char		*stuff;
+	int			final_count;
+	int			count;
+}				t_passinfo;
 
 typedef struct	s_printf_list
 {
-	char	name;
-	void	(*function)(va_list *list, t_infoinput *info, t_passinfo *pass);
-}		t_printf_list;
+	char		name;
+	void		(*function)(va_list *list, t_infoinput *info, t_passinfo *pass);
+}				t_printf_list;
 
-typedef struct s_printf_flag
+typedef struct	s_printf_flag
 {
-	char	name;
-	void	(*function)(long n, t_infoinput *info, t_passinfo *pass);
-}		t_printf_flag;
-	
-
+	char		name;
+	void		(*function)(long n, t_infoinput *info, t_passinfo *pass);
+}				t_printf_flag;
 /*
 ** -----------------------------------------------------------------------------
 ** -------------------------------- Sources ------------------------------------
 ** -----------------------------------------------------------------------------
 */
 
-int				ft_printf(const char *restrict format, ...);
+int				ft_printf(const char *format, ...);
 int				print_char(va_list);
 int				print_wchar_t(va_list);
 int				print_int(va_list);
@@ -118,7 +125,4 @@ unsigned int	base_length(unsigned int nbr, int base);
 void			write_string(char *str);
 char			*str_rev(char *str);
 int				w_char(wchar_t c);
-
-
-
 #endif

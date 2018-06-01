@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/28 23:55:21 by atemunov          #+#    #+#             */
-/*   Updated: 2018/05/31 21:19:09 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/05/31 21:46:26 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 ** formated string (Check man 3 printf)
 */
 
-int				ft_printf(const char *restrict format, ...)
+int				ft_printf(const char *format, ...)
 {
 	int			chars_printed;
 	conver_t f_list[] = {
@@ -28,27 +28,26 @@ int				ft_printf(const char *restrict format, ...)
 		{"c", print_char},
 		{"C", print_wchar_t},
 		{"s", print_string},
-	//	{"S", print_unicode},
+	/**	{"S", print_unicode}, **/
 		{"b", print_binary},
-	//	{"p", print_memory_location},
+	/**	{"p", print_memory_location}, **/
 		{"u", unsigned_int},
 		{"U", unsigned_INT},
 		{"o", print_octal},
 		{"O", print_OCTAL},
 		{"x", print_hex},
 		{"X", print_HEX},
-	//	{"f", print_float},
+	/**	{"f", print_float}, **/
 		{"%", print_percent},
-	//	{"b", print_boolean},
-	//	{"e", print_scientific_noation},
-	//	{"h", print_hash}, // ex. "hello" = 5e918d2
+	/**	{"b", print_boolean}, **/
+	/**	{"e", print_scientific_noation}, **/
+	/**	{"h", print_hash}, // ex. "hello" = 5e918d2 **/
 		{NULL, NULL}
 	};
-	va_list 	args;
+	va_list	args;
 
 	if (!format)
 		return (-1);
-
 	va_start(args, format);
 	/** Calling parser function **/
 	chars_printed = parser(format, f_list, args);
