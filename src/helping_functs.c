@@ -6,11 +6,12 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/29 16:57:04 by atemunov          #+#    #+#             */
-/*   Updated: 2018/05/30 15:47:32 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/05/31 19:10:39 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+#include "../libft/libft.h"
 
 char			_memcpy(char *dst, char *src, unsigned int nbr)
 {

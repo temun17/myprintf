@@ -6,11 +6,12 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/27 22:15:53 by atemunov          #+#    #+#             */
-/*   Updated: 2018/05/29 23:13:16 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/05/31 19:11:14 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+#include "../libft/libft.h"
 
 int	parser(const char *format, conver_t f_list[], va_list args)
 {

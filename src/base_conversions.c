@@ -6,11 +6,12 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/29 14:44:14 by atemunov          #+#    #+#             */
-/*   Updated: 2018/05/31 17:29:45 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/05/31 19:10:13 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+#include "../libft/libft.h"
 
 /********************************************************************
  **	***BONUS*** print_binary - Converts number from base 10 to binary
