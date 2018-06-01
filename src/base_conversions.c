@@ -6,15 +6,15 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/29 14:44:14 by atemunov          #+#    #+#             */
-/*   Updated: 2018/05/31 17:20:19 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/05/31 17:29:45 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-/**
- **	print_binary - Converts number from base 10 to binary
- **
+/********************************************************************
+ **	***BONUS*** print_binary - Converts number from base 10 to binary
+ ********************************************************************
  **/
 
 int	print_binary(va_list list)
