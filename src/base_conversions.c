@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/29 14:44:14 by atemunov          #+#    #+#             */
-/*   Updated: 2018/06/01 01:10:21 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/06/01 14:36:50 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -195,10 +195,10 @@ int	print_HEX(va_list list)
 
 int	print_memory_address(va_list list)
 {
-	char			*print;
-	int				i;
-	unsigned int	nbr;
-	int				length;
+	char				*print;
+	unsigned int		i;
+	unsigned long int	nbr;
+	int					length;
 
 	i = 0;
 	length = 0;
@@ -208,11 +208,11 @@ int	print_memory_address(va_list list)
 		print[i] = '0';
 	while (nbr != 0)
 	{
-		print[i++] = "01234456789abcdef"[nbr % 16];
+		print[i++] = H_LOWER[nbr % 16];
 		nbr /= 16;
 	}
 	print[i] = '\0';
-	// print = str_rev(print);
+	print = str_rev(print);
 	print = ft_strjoin("0x", print);
 	write_string(print);
 	return (*print);
