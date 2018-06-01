@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/28 23:55:21 by atemunov          #+#    #+#             */
-/*   Updated: 2018/05/31 19:35:15 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/05/31 21:19:09 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 /*
 ** ft_printf() takes a va_list of arguments and converts each
-** variable and all the necessary parameters to print the 
+** variable and all the necessary parameters to print the
 ** formated string (Check man 3 printf)
 */
 
-int		ft_printf(const char *restrict format, ...)
+int				ft_printf(const char *restrict format, ...)
 {
-	int		chars_printed;
+	int			chars_printed;
 	conver_t f_list[] = {
 		{"d", print_int},
 		{"D", print_int},
@@ -44,7 +44,7 @@ int		ft_printf(const char *restrict format, ...)
 	//	{"h", print_hash}, // ex. "hello" = 5e918d2
 		{NULL, NULL}
 	};
-	va_list args;
+	va_list 	args;
 
 	if (!format)
 		return (-1);
