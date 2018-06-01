@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/29 16:57:04 by atemunov          #+#    #+#             */
-/*   Updated: 2018/05/31 19:10:39 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/05/31 19:47:03 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,10 @@ char			*str_rev(char *str)
 		str[len] = temp;
 	}
 	return (str);
+}
+
+int				w_char(wchar_t c)
+{
+	write(1, &c, 1);
+	return (0);
 }

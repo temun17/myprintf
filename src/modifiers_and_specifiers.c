@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/28 23:17:47 by atemunov          #+#    #+#             */
-/*   Updated: 2018/05/31 19:10:57 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/05/31 19:53:28 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,5 +127,11 @@ int	print_string(va_list list)
 int	print_char(va_list list)
 {
 	ft_putchar(va_arg(list, int));
+	return (1);
+}
+
+int	print_wchar_t(va_list list)
+{
+	w_char(va_arg(list, int));
 	return (1);
 }

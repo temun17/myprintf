@@ -77,6 +77,7 @@ typedef struct s_printf_flag
 
 int				ft_printf(const char *restrict format, ...);
 int				print_char(va_list);
+int				print_wchar_t(va_list);
 int				print_int(va_list);
 int				print_number(va_list);
 int				unsigned_int(va_list);
@@ -116,6 +117,7 @@ char			_memcpy(char *dst, char *src, unsigned int nbr);
 unsigned int	base_length(unsigned int nbr, int base);
 void			write_string(char *str);
 char			*str_rev(char *str);
+int				w_char(wchar_t c);
 
 
 

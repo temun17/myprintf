@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/28 23:11:32 by atemunov          #+#    #+#             */
-/*   Updated: 2018/05/31 17:11:17 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/05/31 20:02:47 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	main()
 {
-	int i;
-	char *temp;
-	int j;
+	int 	i;
+	char 	*temp;
+	int 	j;
 
 	temp = "Hello,";
 		
@@ -26,6 +26,10 @@ int	main()
 	ft_printf("%b\n", 2);
 	ft_printf("%i\n", j);
 	ft_printf("%%\n");
+	ft_printf("%c\n", 'a');
+	ft_printf("%C\n", 'a');
+	// printf("%c\n", 'a');
+	// printf("%C\n", 'a');
 	// printf("%o\n", 1000);
 	// printf("%O\n", 1000);
 	// printf("%x\n", 10);
