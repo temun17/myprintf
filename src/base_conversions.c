@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/29 14:44:14 by atemunov          #+#    #+#             */
-/*   Updated: 2018/06/01 14:36:50 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/06/01 19:06:36 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -216,4 +216,38 @@ int	print_memory_address(va_list list)
 	print = ft_strjoin("0x", print);
 	write_string(print);
 	return (*print);
+}
+
+int	print_unicode(va_list list)
+{
+	char				*fake_wide;
+	wchar_t				wide;
+	int					i;
+
+	i = 0;
+	wide = va_arg(list, wchar_t);
+	fake_wide = ft_strnew(5);
+	if (wide < 0x80)
+		fake_wide[0] = wide;
+	else if (wide < 0x800)
+	{
+		fake_wide[0] = (((wide >> 6) & 0x1F) | 0xC0);
+		fake_wide[1] = (((wide >> 0) & 0x3F) | 0x80);
+	}
+	else if (wide < 0x10000)
+	{
+		fake_wide[0] = (((wide >> 12) & 0x0F) | 0xE0);
+		fake_wide[1] = (((wide >> 6) & 0x3F) | 0x80);
+		fake_wide[2] = (((wide >> 0) & 0x3F) | 0x80);
+	}
+	else if (wide < 0x10FFFF)
+	{
+		fake_wide[0] = (((wide >> 18) & 0x07) | 0xF0);
+		fake_wide[1] = (((wide >> 12) & 0x3F) | 0x80);
+		fake_wide[2] = (((wide >> 6) & 0x3F) | 0x80);
+		fake_wide[3] = (((wide >> 0) & 0x3F) | 0x80);
+	}
+	fake_wide[i] = '\0';
+	write_string(fake_wide);
+	return (*fake_wide);
 }

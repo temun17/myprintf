@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/31 21:25:03 by atemunov          #+#    #+#             */
-/*   Updated: 2018/06/01 15:18:25 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/06/01 19:05:47 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <math.h>
+# include <locale.h>
+# include <wchar.h>
 
 /*
 ** -------------------------- Macros Definition --------------------------------
@@ -40,6 +42,8 @@ struct			convert
 };
 
 typedef struct 	convert 	conver_t;
+
+typedef wchar_t WCHAR;
 
 typedef struct	s_infoinput
 {
@@ -95,6 +99,7 @@ int				unsigned_INT(va_list);
 int				print_percent();
 int				print_string(va_list);
 int				print_memory_address(va_list);
+int				print_unicode(va_list);
 int				print_unsigned_int(unsigned int);
 int				print_binary(va_list);
 int				print_octal(va_list);
