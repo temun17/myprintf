@@ -35,8 +35,8 @@ int	main(void)
 	// printf("%c\n", 'a');
 	// printf("%C\n", 'a');
 	printf("%5.3s\n", "swag");
-	printf("%S\n", L"Hello");
-	ft_printf("%S\n", L"Hello");
+	printf("%S\n", L"êêêêêêêêêêêê");
+	ft_printf("%S\n", L"êêêêêêêêêêê");
 	ft_printf("%u\n", 42);
 	ft_printf("%U\n", 42);
 	ft_printf("%x\n", 11);

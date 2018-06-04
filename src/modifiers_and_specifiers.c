@@ -120,7 +120,7 @@ int	print_string(va_list list)
 
 int	print_char(va_list list)
 {
-	ft_putchar(va_arg(list, int));
+	ft_putchar((char)va_arg(list, int));
 	return (1);
 }
 
