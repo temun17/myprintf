@@ -220,34 +220,37 @@ int	print_memory_address(va_list list)
 
 int	print_unicode(va_list list)
 {
-	char				*fake_wide;
-	wchar_t				wide;
-	int					i;
+	wchar_t	*fake_wide;
+	wchar_t *wide;
+	int	len;
+	char	org;
+	int	i;
 
 	i = 0;
-	wide = va_arg(list, wchar_t);
-	fake_wide = ft_strnew(5);
-	if (wide < 0x80)
-		fake_wide[0] = wide;
-	else if (wide < 0x800)
+	len = 0;
+	org = 0;
+	wide = va_arg(list, wchar_t*);
+	fake_wide = NULL;
+	if (len == 1)
+		fake_wide[0] = org;
+	else if (len == 2)
 	{
-		fake_wide[0] = (((wide >> 6) & 0x1F) | 0xC0);
-		fake_wide[1] = (((wide >> 0) & 0x3F) | 0x80);
+		fake_wide[0] = ((org >> 6) | 0xC0);
+		fake_wide[1] = ((org & 0x3f) | 0x80);
 	}
-	else if (wide < 0x10000)
+	else if (len == 3)
 	{
-		fake_wide[0] = (((wide >> 12) & 0x0F) | 0xE0);
-		fake_wide[1] = (((wide >> 6) & 0x3F) | 0x80);
-		fake_wide[2] = (((wide >> 0) & 0x3F) | 0x80);
+		fake_wide[0] = ((org >> 12) | 0xE0);
+		fake_wide[1] = (((org >> 6) & 0x3f) | 0x80);
+		fake_wide[2] = ((org & 0x3f) | 0x80);
 	}
-	else if (wide < 0x10FFFF)
+	else if (len == 4)
 	{
-		fake_wide[0] = (((wide >> 18) & 0x07) | 0xF0);
-		fake_wide[1] = (((wide >> 12) & 0x3F) | 0x80);
-		fake_wide[2] = (((wide >> 6) & 0x3F) | 0x80);
-		fake_wide[3] = (((wide >> 0) & 0x3F) | 0x80);
+		fake_wide[0] = ((org >> 18) | 0xf0);
+		fake_wide[1] = (((org >> 12) & 0x3f) | 0x80);
+		fake_wide[2] = (((org >> 6) & 0x3f) | 0x80);
+		fake_wide[3] = ((org & 0x3f) | 0x80);
 	}
-	fake_wide[i] = '\0';
-	write_string(fake_wide);
-	return (*fake_wide);
+	putw_str(wide);
+	return (len);
 }

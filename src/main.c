@@ -19,7 +19,7 @@ int	main(void)
 	int		j;
 	int		a;
 
-	setlocale(LC_ALL, "");
+	setlocale(LC_ALL, "en_US.UTF-8");
 	temp = "Hello,";
 	a = 23;
 	i = -17;
@@ -35,6 +35,7 @@ int	main(void)
 	// printf("%c\n", 'a');
 	// printf("%C\n", 'a');
 	printf("%5.3s\n", "swag");
+	printf("%S\n", L"Hello");
 	ft_printf("%S\n", L"Hello");
 	ft_printf("%u\n", 42);
 	ft_printf("%U\n", 42);

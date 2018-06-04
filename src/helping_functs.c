@@ -78,3 +78,15 @@ int				w_char(wchar_t c)
 	write(1, &c, 1);
 	return (0);
 }
+
+void				putw_str(wchar_t *str)
+{
+	int	i;
+	
+	i = 0;
+	while (str[i] != '\0')
+	{
+		ft_putchar(str[i]);
+		i++;
+	}
+}
