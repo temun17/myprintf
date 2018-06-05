@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/31 21:25:03 by atemunov          #+#    #+#             */
-/*   Updated: 2018/06/01 19:05:47 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/06/04 22:17:00 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,23 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include <stdio.h>
+# include <stdlib.h>
 # include <math.h>
 # include <locale.h>
 # include <wchar.h>
+# include <inttypes.h>
 
 /*
 ** -------------------------- Macros Definition --------------------------------
 */
 
 # define H_LOWER ("0123456789abcdef")
+# define ISLENMOD(x) (x == 'h' || x == 'l' || x == 'j' || x == 'z')
 
 /*
 ** ------------------------- Structure Definition ------------------------------
 */
+
 
 struct			convert
 {
@@ -45,44 +49,36 @@ typedef struct 	convert 	conver_t;
 
 typedef wchar_t WCHAR;
 
-typedef struct	s_infoinput
+typedef struct	s_flagmods
 {
-	int			space;
+	int			nbr;
 	int			minus;
 	int			hash;
 	int			plus;
 	int			zero;
 	int			precision;
-	char		conversion;
+	int			width;
 	char		*modifier;
+	int			chrfil;
+	int			chk;
+	int			pad;
+	int			precheck;
+	int			lr;
 	int			f;
 	int			p;
 	int			c;
 	int			m;
-}				t_infoinput;
+	int			w;
+	int			data;
+	int			bytes;
+}					t_flagmods;
 
-typedef struct	s_passinfo
+typedef enum	e_bool
 {
-	int			n;
-	int			numlen;
-	int			strlen;
-	int			width;
-	char		*stuff;
-	int			final_count;
-	int			count;
-}				t_passinfo;
+	false,
+	true
+}				t_bool;
 
-typedef struct	s_printf_list
-{
-	char		name;
-	void		(*function)(va_list *list, t_infoinput *info, t_passinfo *pass);
-}				t_printf_list;
-
-typedef struct	s_printf_flag
-{
-	char		name;
-	void		(*function)(long n, t_infoinput *info, t_passinfo *pass);
-}				t_printf_flag;
 /*
 ** -----------------------------------------------------------------------------
 ** -------------------------------- Sources ------------------------------------
@@ -113,17 +109,12 @@ int				check_hex(int, char);
 */
 
 int				parser(const char *format, conver_t f_list[], va_list args);
+void			ft_init_opr(t_flagmods *opr);
 
 /*
 ** --------------------------------  Flags -------------------------------------
 */
 
-void			ft_flag_plus(long n, t_infoinput *info, t_passinfo *pass);
-void			ft_flag_minus(long n, t_infoinput *info, t_passinfo *pass);
-void			ft_flag_space(long n, t_infoinput *info, t_passinfo *pass);
-void			ft_flag_hash(long n, t_infoinput *info, t_passinfo *pass);
-void			ft_flag_zero(long n, t_infoinput *info, t_passinfo *pass);
-void			ft_flag_period(long n, t_infoinput *info, t_passinfo *pass);
 
 /*
 ** ------------------------- Helping Functions --------------------------------
@@ -135,4 +126,5 @@ void			write_string(char *str);
 void			putw_str(wchar_t *str);
 char			*str_rev(char *str);
 int				w_char(wchar_t c);
+int				ft_nbrlen(int c);
 #endif

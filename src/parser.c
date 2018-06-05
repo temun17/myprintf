@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/27 22:15:53 by atemunov          #+#    #+#             */
-/*   Updated: 2018/05/31 21:57:18 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/06/04 22:16:09 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,10 @@ int	parser(const char *format, conver_t f_list[], va_list args)
 	{
 		if (format[i] == '%') // This checks for format specifiers
 		{
+			//printf("i = %d\n", find_flags(opr, format, args));
+			//i += find_flags(opr, format, args);
 			j = 0;
+			//printf("here: %s\n", &format[i + 1]);
 			while (f_list[j].opr != '\0')
 			{
 				if (format[i + 1] == f_list[j].opr[0])

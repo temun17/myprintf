@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/29 16:57:04 by atemunov          #+#    #+#             */
-/*   Updated: 2018/05/31 21:47:02 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/06/04 11:39:44 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int				w_char(wchar_t c)
 	return (0);
 }
 
-void				putw_str(wchar_t *str)
+void			putw_str(wchar_t *str)
 {
 	int	i;
 	
@@ -89,4 +89,17 @@ void				putw_str(wchar_t *str)
 		ft_putchar(str[i]);
 		i++;
 	}
+}
+
+int				ft_nbrlen(int n)
+{
+	int i;
+
+	i = 0;
+	while (n != 0)
+	{
+		n = n / 10;
+		i++;
+	}
+	return (i);
 }

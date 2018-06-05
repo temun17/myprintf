@@ -6,7 +6,7 @@
 #    By: atemunov <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/05/28 23:06:34 by atemunov          #+#    #+#              #
-#    Updated: 2018/06/01 14:47:27 by atemunov         ###   ########.fr        #
+#    Updated: 2018/06/04 22:15:10 by atemunov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SRC = src/main.c \
 	  src/parser.c \
 	  src/modifiers_and_specifiers.c \
 	  src/base_conversions.c \
-	  src/helping_functs.c 
+	  src/helping_functs.c \
 
 OBJS = $(SRC:.c=.o)
 

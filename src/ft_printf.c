@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/28 23:55:21 by atemunov          #+#    #+#             */
-/*   Updated: 2018/06/01 18:43:40 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/06/04 22:17:30 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,28 @@
 ** variable and all the necessary parameters to print the
 ** formated string (Check man 3 printf)
 */
+
+void			ft_init_opr(t_flagmods *opr)
+{
+	opr->nbr = 0;
+	opr->minus = 0;
+	opr->hash = 0;
+	opr->plus = 0;
+	opr->zero = 0;
+	opr->precision = 0;
+	opr->width = 0;
+	opr->modifier = 0;
+	opr->pad = 0;
+	opr->precheck = 0;
+	opr->lr = 0;
+	opr->f = 0;
+	opr->p = 0;
+	opr->c = 0;
+	opr->m = 0;
+	opr->w = 0;
+	opr->chrfil = 0;
+	opr->chk = 0;
+}
 
 int				ft_printf(const char *format, ...)
 {
@@ -45,6 +67,9 @@ int				ft_printf(const char *format, ...)
 		{NULL, NULL}
 	};
 	va_list	args;
+	t_flagmods opr;
+//	opr = NULL;
+	ft_init_opr(&opr);
 
 	if (!format)
 		return (-1);

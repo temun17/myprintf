@@ -1,6 +1,7 @@
 # Custom
 *.swp
 *.txt
+*.gch
 
 # Prerequisites
 *.d
