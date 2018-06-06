@@ -6,11 +6,11 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/28 23:55:21 by atemunov          #+#    #+#             */
-/*   Updated: 2018/06/05 21:51:43 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/06/06 11:00:29 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
 /*
 ** ft_printf() takes a va_list of arguments and converts each
@@ -18,19 +18,20 @@
 ** formated string (Check man 3 printf)
 */
 
-void			ft_init_pass(t_flagmods *pass)
+void			ft_init_pass(t_flags *pass)
 {
-	pass->nbr = 0;
 	pass->minus = 0;
 	pass->hash = 0;
 	pass->plus = 0;
 	pass->zero = 0;
-	pass->precision = 0;
+	pass->precision = -1;
 	pass->width = 0;
-	pass->modifier = 0;
+	pass->neg = 0;
 	pass->pad = 0;
-	pass->precheck = 0;
+	pass->argu = 0;
 	pass->final_count = 0;
+	pass->flag_plus = 0;
+	pass->type = 0;
 }
 
 int				ft_printf(const char *format, ...)
@@ -61,15 +62,24 @@ int				ft_printf(const char *format, ...)
 //		{'+', ft_flag_plus},
 //		{' ', ft_flag_space},
 //		{'#', ft_flag_hash},
-		{'0', ft_flag_zero},
+		{"0", ft_flag_zero},
 //		{'.', ft_flag_period},
 		{NULL, NULL}
 	};
-	va_list	args;
-	t_flagmods pass;
-//	opr = NULL;
-	ft_init_pass(&pass);
 
+//	flag_s flag_list[] = {
+//		{'-', ft_flag_minus},
+//		{'+', ft_flag_plus},
+//		{' ', ft_flag_space},
+//		{'#', ft_flag_hash},
+//		{'0', ft_flag_zero},
+//		{'.', ft_flag_period},
+//		{NULL, NULL}
+//	};
+	va_list	args;
+	t_flags pass;
+//	pass = NULL;
+	ft_init_pass(&pass);
 	if (!format)
 		return (-1);
 	va_start(args, format);

@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/31 21:25:03 by atemunov          #+#    #+#             */
-/*   Updated: 2018/06/05 21:52:09 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/06/06 10:53:09 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 ** -------------------------- External Headers ---------------------------------
 */
 
-# include "../libft/libft.h"
+# include "libft.h"
 # include <stdarg.h>
 # include <unistd.h>
 # include <stdio.h>
@@ -45,25 +45,33 @@ struct			convert
 	int	(*f)(va_list);
 };
 
+struct			flags
+{
+	int *pass;
+	int (*flag)(va_list);
+};
+
+typedef struct	flags		flag_s;
+
 typedef struct 	convert 	conver_t;
 
 typedef wchar_t WCHAR;
 
-typedef struct	s_flagmods
+typedef struct	s_flags
 {
-	int			nbr;
 	int			minus;
 	int			hash;
 	int			plus;
 	int			zero;
 	int			precision;
 	int			width;
-	char		*modifier;
-	int			pad;
-	int			precheck;
+	char		pad;
+	int			neg;
+	int			argu;
 	int			final_count;
-	int			ft_nbrlen;
-}					t_flagmods;
+	int			flag_plus;
+	int			type;
+}					t_flags;
 
 typedef enum	e_bool
 {
@@ -95,19 +103,20 @@ int				print_OCTAL(va_list);
 int				print_hex(va_list);
 int				print_HEX(va_list);
 int				check_hex(int, char);
-int				ft_flag_zero(va_list, t_flagmods *pass);
 
 /*
 ** -------------------------- Parsing Function --------------------------------
 */
 
 int				parser(const char *format, conver_t f_list[], va_list args);
-void			ft_init_pass(t_flagmods *pass);
+void			ft_init_pass(t_flags *pass);
 
 /*
 ** --------------------------------  Flags -------------------------------------
 */
 
+int					ft_flag_zero(va_list);
+void				ft_flag_plus(va_list list, t_flags *pass);
 
 /*
 ** ------------------------- Helping Functions --------------------------------
@@ -120,4 +129,5 @@ void			putw_str(wchar_t *str);
 char			*str_rev(char *str);
 int				w_char(wchar_t c);
 int				ft_nbrlen(int c);
+void			ft_print_char(char c, int *ret);
 #endif

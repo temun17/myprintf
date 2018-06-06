@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/29 16:57:04 by atemunov          #+#    #+#             */
-/*   Updated: 2018/06/04 11:39:44 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/06/06 08:32:43 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,4 +102,10 @@ int				ft_nbrlen(int n)
 		i++;
 	}
 	return (i);
+}
+
+void			ft_print_char(char c, int *ret)
+{
+	(*ret)++;
+	write(1, &c, 1);
 }

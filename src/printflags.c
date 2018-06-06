@@ -6,26 +6,39 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/05 20:57:12 by atemunov          #+#    #+#             */
-/*   Updated: 2018/06/05 21:52:57 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/06/06 10:50:36 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
-#include "../libft/libft.h"
+#include "ft_printf.h"
 
-int		ft_flag_zero(va_list list, t_flagmods *pass)
+int		ft_flag_zero(va_list list)
 {
-	int	nbr;
-	int	n;
+	int nbr;
+	int len;
 
 	nbr = va_arg(list, int);
-	n = 0;
-	while (pass->ft_nbrlen < pass->width)
-	{
-		ft_putchar('0');
-		pass->ft_nbrlen++;
-		pass->final_count++;
-	}
-	n *= 1;
-	return (n);
+	len = 0;
+
+	return (0);
 }
+
+/*void		ft_flag_plus(va_list list, t_flags *pass)
+{
+	char	*tmp;
+	char	*tmp2;
+	char	*num;
+
+	num = params->str;
+	if (!pass->flag_plus)
+		return ;
+	if (pass->type != 'i' && pass->type != 'd' && pass->type != 'D')
+		return ;
+	if (num[0] != '-')
+	{
+		tmp = ft_strtrim(params->str);
+		tmp2 = ft_strjoin("+", tmp);
+		pass->str = tmp2;
+		ft_width(pass);
+	}
+}*/
