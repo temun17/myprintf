@@ -6,39 +6,42 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/05 20:57:12 by atemunov          #+#    #+#             */
-/*   Updated: 2018/06/06 10:50:36 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/06/06 14:40:15 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_flag_zero(va_list list)
+int		ft_flag_width(va_list list)
 {
-	int nbr;
-	int len;
+//	int 	nbr;
+//	int		i;
+//	t_flags *pass;
+//	int		length;
+	va_arg(list, int);
+	return (1);
+/*	int 	nbr;
+	int		i;
+	t_flags *pass;
+	int		length;
 
+	pass = NULL;
 	nbr = va_arg(list, int);
-	len = 0;
-
-	return (0);
-}
-
-/*void		ft_flag_plus(va_list list, t_flags *pass)
-{
-	char	*tmp;
-	char	*tmp2;
-	char	*num;
-
-	num = params->str;
-	if (!pass->flag_plus)
-		return ;
-	if (pass->type != 'i' && pass->type != 'd' && pass->type != 'D')
-		return ;
-	if (num[0] != '-')
+	if (nbr == 0)
+		return (ft_putchar('0'));
+	if (nbr < 1)
+		return (-1);
+	length = base_length(nbr, 0);
+	i = 0;
+	while (pass->width-- >= 1)
 	{
-		tmp = ft_strtrim(params->str);
-		tmp2 = ft_strjoin("+", tmp);
-		pass->str = tmp2;
-		ft_width(pass);
+		if (pass->zero == 1)
+			ft_print_char(length, &(pass->retrn));
+		else if (pass->zero == 0)
+			ft_print_char(' ', &(pass->retrn));
+		if (pass->width == 0)
+			pass->width = -100;
 	}
-}*/
+	ft_putchar(pass->zero);
+	return (length);*/
+}

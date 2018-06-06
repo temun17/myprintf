@@ -6,7 +6,7 @@
 #    By: atemunov <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/05/28 23:06:34 by atemunov          #+#    #+#              #
-#    Updated: 2018/06/06 12:08:14 by atemunov         ###   ########.fr        #
+#    Updated: 2018/06/06 14:41:43 by atemunov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRC = src/ft_printf.c \
 	  src/base_conversions.c \
 	  src/helping_functs.c \
 	  src/printflags.c \
+	  src/flag_parser.c \
 
 OBJS = $(SRC:.c=.o)
 

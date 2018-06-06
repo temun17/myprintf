@@ -6,13 +6,13 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/22 13:16:12 by atemunov          #+#    #+#             */
-/*   Updated: 2018/03/06 19:24:22 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/06/06 13:13:19 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s)
+char	*ft_strtrim(char *s)
 {
 	unsigned int	start;
 	unsigned int	end;

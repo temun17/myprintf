@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/28 23:11:32 by atemunov          #+#    #+#             */
-/*   Updated: 2018/06/05 20:55:40 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/06/06 16:24:55 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,22 +25,20 @@ int	main(void)
 	i = -17;
 	j = 1234;
 
-	ft_printf("%s the value of i is %D\n", temp, i);
-	ft_printf("%b\n", 2);
-	ft_printf("%i\n", j);
 	ft_printf("%%\n");
 	ft_printf("%c\n", 'A');
 	ft_printf("%C\n", 'a');
 	printf("%p\n", &a);
 	ft_printf("%p\n", &a);
-//	printf("%c\n", 'a');
-//	printf("%C\n", 'a');
+	printf("%c\n", 'a');
+	printf("%C\n", 'a');
 	printf("%25s\n", "Over Here!");
 	printf("%010d\n", a);
+	ft_printf("%010d\n", a);
 //	ft_printf("%25s\n", "Over Here!");
-	printf("%5.3s\n", "swag");
-	printf("%S\n", L"êêêêêêêêêêêê");
-	ft_printf("%S\n", L"êêêêêêêêêêê");
+//	printf("%5.3s\n", "swag");
+//	printf("%S\n", L"êêêêêêêêêêêê");
+//	ft_printf("%S\n", L"êêêêêêêêêêê");
 //	ft_printf("%u\n", 42);
 //	ft_printf("%U\n", 42);
 //	ft_printf("%x\n", 11);

@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/31 21:25:03 by atemunov          #+#    #+#             */
-/*   Updated: 2018/06/06 10:53:09 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/06/06 16:18:27 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@
 
 # define H_LOWER ("0123456789abcdef")
 # define ISLENMOD(x) (x == 'h' || x == 'l' || x == 'j' || x == 'z')
+# define FLAGS(x) (x == ' ' || x == '+' || x == '-' || x == '0' || x == '#')
 
 /*
 ** ------------------------- Structure Definition ------------------------------
@@ -63,14 +64,16 @@ typedef struct	s_flags
 	int			hash;
 	int			plus;
 	int			zero;
+	int			space;
 	int			precision;
 	int			width;
-	char		pad;
 	int			neg;
-	int			argu;
+	int			format;
 	int			final_count;
 	int			flag_plus;
-	int			type;
+	char		type;
+	int			str;
+	int			retrn;
 }					t_flags;
 
 typedef enum	e_bool
@@ -108,15 +111,16 @@ int				check_hex(int, char);
 ** -------------------------- Parsing Function --------------------------------
 */
 
-int				parser(const char *format, conver_t f_list[], va_list args);
+int				parser(const char *format, va_list args, t_flags *pass);
 void			ft_init_pass(t_flags *pass);
 
 /*
 ** --------------------------------  Flags -------------------------------------
 */
 
-int					ft_flag_zero(va_list);
-void				ft_flag_plus(va_list list, t_flags *pass);
+void				ft_flag_parse(char *format, int *i, va_list args, t_flags *pass);
+int					ft_flag_width(va_list);
+int					ft_flag_plus(va_list);
 
 /*
 ** ------------------------- Helping Functions --------------------------------
@@ -130,4 +134,26 @@ char			*str_rev(char *str);
 int				w_char(wchar_t c);
 int				ft_nbrlen(int c);
 void			ft_print_char(char c, int *ret);
+
+/*conver_t g_conversions[] = {
+	{"d", print_int},
+	{"D", print_int},
+	{"i", print_int},
+	{"c", print_char},
+	{"C", print_wchar_t},
+	{"s", print_string},
+	{"S", print_unicode},
+	{"b", print_binary},
+	{"p", print_memory_address},
+	{"u", unsigned_int},
+	{"U", unsigned_INT},
+	{"o", print_octal},
+	{"O", print_OCTAL},
+	{"x", print_hex},
+	{"X", print_HEX},
+	{"%", print_percent},
+	{"0", ft_flag_width},
+	{NULL, NULL}
+	};*/
+
 #endif

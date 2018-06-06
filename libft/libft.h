@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/19 12:36:03 by atemunov          #+#    #+#             */
-/*   Updated: 2018/05/31 19:30:40 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/06/06 13:13:38 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ char			*ft_strnew(size_t size);
 char			*ft_strsub(char const *s, unsigned int start, size_t len);
 char			*ft_strstr(char *haystack, const char *needle);
 char			*ft_strnstr(const char *s1, const char *s2, size_t len);
-char			*ft_strtrim(char const *s);
+char			*ft_strtrim(char *s);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			**ft_strsplit(char const *s, char c);
 void			ft_strdel(char **as);
