@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/28 23:11:32 by atemunov          #+#    #+#             */
-/*   Updated: 2018/06/04 22:19:38 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/06/05 20:55:40 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int	main(void)
 //	printf("%c\n", 'a');
 //	printf("%C\n", 'a');
 	printf("%25s\n", "Over Here!");
+	printf("%010d\n", a);
 //	ft_printf("%25s\n", "Over Here!");
 	printf("%5.3s\n", "swag");
 	printf("%S\n", L"êêêêêêêêêêêê");

@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/31 21:25:03 by atemunov          #+#    #+#             */
-/*   Updated: 2018/06/04 22:17:00 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/06/05 21:52:09 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,18 +59,10 @@ typedef struct	s_flagmods
 	int			precision;
 	int			width;
 	char		*modifier;
-	int			chrfil;
-	int			chk;
 	int			pad;
 	int			precheck;
-	int			lr;
-	int			f;
-	int			p;
-	int			c;
-	int			m;
-	int			w;
-	int			data;
-	int			bytes;
+	int			final_count;
+	int			ft_nbrlen;
 }					t_flagmods;
 
 typedef enum	e_bool
@@ -103,13 +95,14 @@ int				print_OCTAL(va_list);
 int				print_hex(va_list);
 int				print_HEX(va_list);
 int				check_hex(int, char);
+int				ft_flag_zero(va_list, t_flagmods *pass);
 
 /*
 ** -------------------------- Parsing Function --------------------------------
 */
 
 int				parser(const char *format, conver_t f_list[], va_list args);
-void			ft_init_opr(t_flagmods *opr);
+void			ft_init_pass(t_flagmods *pass);
 
 /*
 ** --------------------------------  Flags -------------------------------------

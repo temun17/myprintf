@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/28 23:55:21 by atemunov          #+#    #+#             */
-/*   Updated: 2018/06/04 22:17:30 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/06/05 21:51:43 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,26 +18,19 @@
 ** formated string (Check man 3 printf)
 */
 
-void			ft_init_opr(t_flagmods *opr)
+void			ft_init_pass(t_flagmods *pass)
 {
-	opr->nbr = 0;
-	opr->minus = 0;
-	opr->hash = 0;
-	opr->plus = 0;
-	opr->zero = 0;
-	opr->precision = 0;
-	opr->width = 0;
-	opr->modifier = 0;
-	opr->pad = 0;
-	opr->precheck = 0;
-	opr->lr = 0;
-	opr->f = 0;
-	opr->p = 0;
-	opr->c = 0;
-	opr->m = 0;
-	opr->w = 0;
-	opr->chrfil = 0;
-	opr->chk = 0;
+	pass->nbr = 0;
+	pass->minus = 0;
+	pass->hash = 0;
+	pass->plus = 0;
+	pass->zero = 0;
+	pass->precision = 0;
+	pass->width = 0;
+	pass->modifier = 0;
+	pass->pad = 0;
+	pass->precheck = 0;
+	pass->final_count = 0;
 }
 
 int				ft_printf(const char *format, ...)
@@ -64,12 +57,18 @@ int				ft_printf(const char *format, ...)
 	/**	{"b", print_boolean}, **/
 	/**	{"e", print_scientific_noation}, **/
 	/**	{"h", print_hash}, // ex. "hello" = 5e918d2 **/
+//		{'-', ft_flag_minus},
+//		{'+', ft_flag_plus},
+//		{' ', ft_flag_space},
+//		{'#', ft_flag_hash},
+		{'0', ft_flag_zero},
+//		{'.', ft_flag_period},
 		{NULL, NULL}
 	};
 	va_list	args;
-	t_flagmods opr;
+	t_flagmods pass;
 //	opr = NULL;
-	ft_init_opr(&opr);
+	ft_init_pass(&pass);
 
 	if (!format)
 		return (-1);
