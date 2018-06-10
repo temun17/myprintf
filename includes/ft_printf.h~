@@ -39,7 +39,24 @@
 ** ------------------------- Structure Definition ------------------------------
 */
 
+
+struct			convert
+{
+	char *opr;
+	int	(*f)(va_list, t_flags);
+};
+
+struct			flags
+{
+	int *pass;
+	int (*flag)(va_list);
+};
+
 typedef struct	flags		flag_s;
+
+typedef struct 	convert 	conver_t;
+
+typedef wchar_t WCHAR;
 
 typedef struct	s_flags
 {
@@ -59,22 +76,6 @@ typedef struct	s_flags
 	int			retrn;
 }					t_flags;
 
-struct			convert
-{
-	char *opr;
-	int	(*f)(va_list, t_flags);
-};
-
-struct			flags
-{
-	int *pass;
-	int (*flag)(va_list);
-};
-
-typedef struct 	convert 	conver_t;
-
-typedef wchar_t WCHAR;
-
 typedef enum	e_bool
 {
 	false,
@@ -88,22 +89,22 @@ typedef enum	e_bool
 */
 
 int				ft_printf(const char *format, ...);
-int				print_char(va_list, t_flags);
-int				print_wchar_t(va_list, t_flags);
-int				print_int(va_list, t_flags);
-int				print_number(va_list, t_flags);
-int				unsigned_int(va_list, t_flags);
-int				unsigned_INT(va_list, t_flags);
+int				print_char(va_list);
+int				print_wchar_t(va_list);
+int				print_int(va_list);
+int				print_number(va_list);
+int				unsigned_int(va_list);
+int				unsigned_INT(va_list);
 int				print_percent();
-int				print_string(va_list, t_flags);
-int				print_memory_address(va_list, t_flags);
-int				print_unicode(va_list, t_flags);
+int				print_string(va_list);
+int				print_memory_address(va_list);
+int				print_unicode(va_list);
 int				print_unsigned_int(unsigned int);
-int				print_binary(va_list, t_flags);
-int				print_octal(va_list, t_flags);
-int				print_OCTAL(va_list, t_flags);
-int				print_hex(va_list, t_flags);
-int				print_HEX(va_list, t_flags);
+int				print_binary(va_list);
+int				print_octal(va_list);
+int				print_OCTAL(va_list);
+int				print_hex(va_list);
+int				print_HEX(va_list);
 int				check_hex(int, char);
 
 /*

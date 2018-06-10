@@ -95,7 +95,7 @@ int	print_int(va_list list, t_flags pass)
 	int nbr_len;
 
 	ft_bzero(&pass, sizeof(t_flags));
-	nbr_len = print_number(list, pass);
+	nbr_len = print_number(list);
 	return (nbr_len);
 }
 

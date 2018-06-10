@@ -129,6 +129,7 @@ int	check_hex(int n, char x)
 	char *hex = "abcdefghijklmnopqrstuvwxyz";
 	char *HEX = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
+	ft_bzero(&pass, sizeof(t_flags));
 	n -= 10;
 	if (x == 'x')
 		return (hex[n]);

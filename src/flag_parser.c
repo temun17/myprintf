@@ -29,7 +29,6 @@ conver_t g_conversions[] = {
 	{"x", print_hex},
 	{"X", print_HEX},
 	{"%", print_percent},
-	{"0", ft_flag_width},
 	{NULL, NULL}
 };
 
@@ -79,7 +78,10 @@ void	ft_convert(va_list args, t_flags *pass)
 	{
 		if (!ft_strcmp((g_conversions[i].opr), &(pass->type)))
 		{
-			g_conversions[i].f(args);
+			//positive_width
+			g_conversions[i].f(args, *pass);
+			//negative width
+			//prec
 		}
 		i++;
 	}
