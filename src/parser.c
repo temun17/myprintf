@@ -1,71 +1,102 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/27 22:15:53 by atemunov          #+#    #+#             */
-/*   Updated: 2018/06/06 15:57:50 by atemunov         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include "ft_printf.h"
 
-#include "../includes/ft_printf.h"
-#include "../libft/libft.h"
-
-int	parser(const char *format, va_list args, t_flags *pass)
+int	ft_convert(int i, char *format, char c)
 {
-	int i;
-	int chars_printed;
-
-	i = 0;
-	chars_printed = 0;
-	while (format[i] != '\0') // Iterates through the string
+	while (format[++i])
 	{
-		if (format[i] == '%') // This checks for format specifiers
+		if (c == format[i])
+			return (1);
+	}
+	return (0);
+}
+
+void	ft_assign_mods(char *format, int *i, t_flags *flags)
+{
+	if (format[0] == 'h' && format[1] == 'h')
+	{
+		flags->modifier = 1;
+		(*i)++;
+	}
+	else if (format[0] == 'h')
+		flags->modifier = 2;
+	else if (format[0] == 'l' && format[1] ==  'l')
+	{
+		flags->modifier = 4;
+		(*i)++;
+	}
+	else if (format[0] == 'l')
+		flags->modifier = 3;
+	else if (format[0] == 'j')
+		flags->modifier = 5;
+	else if (format[0] == 'z')
+		flags->modifier = 6;
+}
+
+void	search_width_prec(char *format, int *i, t_flags *flags, va_list list)
+{
+	if (format[*i] && (((DIGIT(format[*i]))) 
+			|| (format[*i] == '*' && format[*i - 1] != '*')))
+	{
+		if (format[*i] == '*' && format[*i - 1] != '*')
 		{
-			ft_flag_parse((char *)format, &i, args, pass);
-			ft_init_pass(pass);
-			//j = 0;
-			//while (flag_list[f].pass != '\0')
-			//printf("i = %d\n", find_flags(opr, format, args));
-			//i += find_flags(opr, format, args);
-			//printf("here: %s\n", &format[i + 1]);
-		/*	while (f_list[j].opr != '\0')
-			{
-				printf("format = %c\n", format[i + 1]);
-				if (format[i + 1] == f_list[j].opr[0])
-				{
-					ret = f_list[j].f(args);
-					if (ret == -1)
-					{
-						chars_printed = ret + chars_printed;
-						break ;
-					}
-				}
-				j++;
-			}*/
+			flags->width = va_arg(list, int);
+			(*i)++;
 		}
 		else
-			ft_putchar(format[i]);
-		/*if (f_list[j].opr == NULL && format[i + 1] != '%')
 		{
-			if (format[i + 1] != '\0')
-			{
-				//ft_putchar(format[i]);
-				ft_putchar(format[i + 1]);
-				//printf("here = [%c]\n", format[i + 1]);
-				chars_printed = chars_printed + 2;
-			}
-			else
-				return (-1);
-		}*/
-		i++; // This updates i to change format operators
+			flags->width = ft_atoi(&format[*i]);
+			*i += nbrlen(ft_atoi(&format[*i]), 0);
+		}
 	}
-	if (format[i])
+	else if (format[*i] == '.')
 	{
-		ft_putchar(format[i]); // Calls the write function in my libft
-		chars_printed++;
+		*i = *i + 1;
+		flags->p += 1;
+		if (ISSTAR(format[*i]))
+			flags->precision = va_arg(list, int);
+		else if(format[*i] && DIGIT(format[*i]))
+			flags->precision = ft_atoi(&format[*i]);
+		while (ft_isdigit(format[*i]) || ISSTAR(format[*i]))
+			*i = *i + 1;
 	}
-	return (chars_printed);
+}
+		
+void	ft_assign_flags(char *format, t_flags *flags, int *i)
+{
+	while (format[*i] && (FLAGS(format[*i])))
+	{
+		(format[*i] == '-') ? flags->minus += 1 : 0;
+		(format[*i] == '#') ? flags->hash += 1 : 0;
+		(format[*i] == ' ') ? flags->space += 1 : 0;
+		(format[*i] == '0') ? flags->zero += 1 : 0;
+		(format[*i] == '+') ? flags->plus += 1 : 0;
+		(*i)++;
+	}
+}
+
+int	parser(char *format, int *i, t_flags *flags, va_list list)
+{
+	*i = *i + 1;
+	ft_assign_flags(format, flags, i);
+	search_width_prec(format, i, flags, list);
+	ft_assign_mods(format, i, flags);
+	if (ft_convert(-1, "cCdDisSpoOxXuUb", format[*i]))
+	{
+		flags->c += 1;
+		flags->conversion = format[*i];
+	}
+	if (flags->p <= 1 && flags->c == 1 ? 1 : 0)
+		return (1);
+/*	else if (flags->width)
+	{
+		flags->width = flags->width - 1;
+		(flags->width) ? ft_putcharf(format[*i], flags) : 0;
+		(flags->width) ? *i = *i + 1 : 0;
+		ft_putstr(print_space("", flags), flags);
+	}
+	else if (flags->zero)
+	{
+		ft_putstr(print_zero("", flags), flags);
+	} */
+	return (0);
 }

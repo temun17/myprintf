@@ -1,63 +1,60 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/28 23:55:21 by atemunov          #+#    #+#             */
-/*   Updated: 2018/06/06 16:11:10 by atemunov         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "ft_printf.h"
 
-/*
-** ft_printf() takes a va_list of arguments and converts each
-** variable and all the necessary parameters to print the
-** formated string (Check man 3 printf)
-*/
-
-void			ft_init_pass(t_flags *pass)
+void	ft_init_flags(t_flags *flags)
 {
-	pass->minus = 0;
-	pass->hash = 0;
-	pass->plus = 0;
-	pass->zero = 0;
-	pass->precision = -1;
-	pass->width = 0;
-	pass->neg = 0;
-	pass->space = 0;
-	pass->format = 0;
-	pass->final_count = 0;
-	pass->flag_plus = 0;
-	pass->type = 0;
-	pass->str = 0;
-	pass->retrn = 0;
+	flags->nbr = 0;
+	flags->minus = 0;
+	flags->hash = 0;
+	flags->plus = 0;
+	flags->zero = 0;
+	flags->space = 0;
+	flags->precision = -1;
+	flags->conversion = 0;
+	flags->width = 0;
+	flags->modifier = 0;
+	flags->p = 0;
+	flags->c = 0;
+	flags->chars_printed = 0;
 }
 
-int				ft_printf(const char *format, ...)
+void	parse_format(const char *format, va_list list, int *chars_printed)
 {
-	int			chars_printed;
-
-//	flag_s flag_list[] = {
-//		{'-', ft_flag_minus},
-//		{'+', ft_flag_plus},
-//		{' ', ft_flag_space},
-//		{'#', ft_flag_hash},
-//		{'0', ft_flag_zero},
-//		{'.', ft_flag_period},
-//		{NULL, NULL}
-//	};
-	va_list	args;
-	t_flags pass;
-//	pass = NULL;
-	ft_init_pass(&pass);
-	if (!format)
-		return (-1);
-	va_start(args, format);
-	/** Calling parser function **/
-	chars_printed = parser(format, args, &pass);
-	va_end(args);
+	t_flags	flags;
+	int	i;
+	
+	i = 0;
+	while (format[i])
+	{
+		ft_init_flags(&flags);
+		if (format[i] == '%' && format[i + 1] == '%')
+		{
+			ft_putcharf('%', &flags);
+			i = i + 1;
+		}
+		else if (format[i] == '%')
+		{
+			if (parser((char *)format, &i, &flags, list))
+				manage_all(&flags, list);
+			else if (format[i])
+				ft_putcharf(format[i], &flags);
+		}
+		else if (i < ft_strlen((char *)format))
+			ft_putcharf(format[i], &flags);
+		*chars_printed += flags.chars_printed;
+		i++; 
+	}
+}
+	
+int	ft_printf(const char *format, ...)
+{
+	va_list	list;
+	int	i;
+	int	chars_printed;
+	
+	i = 0;
+	chars_printed = 0;
+	va_start(list, format);
+	parse_format(format, list, &chars_printed);
+	va_end(list);
 	return (chars_printed);
 }

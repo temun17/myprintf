@@ -1,32 +1,22 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: atemunov <marvin@42.fr>                    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2018/05/28 23:06:34 by atemunov          #+#    #+#              #
-#    Updated: 2018/06/06 14:41:43 by atemunov         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 NAME = libftprintf.a
 
 CC = gcc
 
-CFLAGS = -g -Wall -Wextra -Werror
+CFLAGS = -g
 
 INCLUDES = ./includes/
 
 SRC = src/ft_printf.c \
-	  src/parser.c \
-	  src/modifiers_and_specifiers.c \
-	  src/base_conversions.c \
-	  src/helping_functs.c \
-	  src/printflags.c \
-	  src/flag_parser.c \
+	src/helping_f.c \
+	src/parser.c \
+	src/manage.c \
+	src/basic_conv.c \
 
-OBJS = $(SRC:.c=.o)
+OBJS = src/ft_printf.o \
+	src/helping_f.o \
+	src/parser.o \
+	src/manage.o \
+	src/basic_conv.o \
 
 LIBFT = ./libft
 
@@ -34,7 +24,7 @@ LIB_OPT = -L ./libft/ -lft
 
 READY = @echo "\033[0;32mft_printf ready to use!"
 
-all : $(NAME)
+all: $(NAME)
 
 $(NAME):
 	make -C $(LIBFT)
@@ -46,7 +36,7 @@ $(NAME):
 	@echo "Successfully created libftprintf.a"
 	$(READY)
 
-re_executable:
+re_execute:
 	rm -rf BofA_Deez_Nuts
 	$(CC) $(CFLAGS) -I $(INCLUDES) -I $(LIBFT) -c $(SRC) src/main.c -g
 	mv *.o src/
@@ -54,10 +44,10 @@ re_executable:
 
 clean:
 	make clean -C $(LIBFT)/
-	@rm -rf $(OBJS)
+	rm -rf $(OBJS)
 
 fclean: clean
 	make fclean -C $(LIBFT)/
 	rm -rf $(NAME) *.o
-
+	
 re: fclean all

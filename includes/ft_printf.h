@@ -32,6 +32,7 @@
 */
 
 # define H_LOWER ("0123456789abcdef")
+# define ISSTAR(x) (x == '*')
 # define ISLENMOD(x) (x == 'h' || x == 'l' || x == 'j' || x == 'z')
 # define FLAGS(x) (x == ' ' || x == '+' || x == '-' || x == '0' || x == '#')
 
@@ -39,47 +40,23 @@
 ** ------------------------- Structure Definition ------------------------------
 */
 
-typedef struct	flags		flag_s;
-
 typedef struct	s_flags
 {
+	int			nbr;
 	int			minus;
 	int			hash;
 	int			plus;
 	int			zero;
 	int			space;
 	int			precision;
+	int			conversion;
 	int			width;
-	int			neg;
-	int			format;
-	int			final_count;
-	int			flag_plus;
-	char		type;
-	int			str;
-	int			retrn;
+	int			modifier;
+	int			p;
+	int			c;
+	int			chars_printed;
 }					t_flags;
 
-struct			convert
-{
-	char *opr;
-	int	(*f)(va_list, t_flags *);
-};
-
-struct			flags
-{
-	int *pass;
-	int (*flag)(va_list);
-};
-
-typedef struct 	convert 	conver_t;
-
-typedef wchar_t WCHAR;
-
-typedef enum	e_bool
-{
-	false,
-	true
-}				t_bool;
 
 /*
 ** -----------------------------------------------------------------------------
@@ -87,72 +64,38 @@ typedef enum	e_bool
 ** -----------------------------------------------------------------------------
 */
 
-int				ft_printf(const char *format, ...);
-int				print_char(va_list, t_flags *);
-int				print_wchar_t(va_list, t_flags *);
-int				print_int(va_list, t_flags *);
-int				print_number(va_list, t_flags *);
-int				unsigned_int(va_list, t_flags *);
-int				unsigned_INT(va_list, t_flags *);
-int				print_percent();
-int				print_string(va_list, t_flags *);
-int				print_memory_address(va_list, t_flags *);
-int				print_unicode(va_list, t_flags *);
-int				print_unsigned_int(unsigned int, t_flags *);
-int				print_binary(va_list, t_flags *);
-int				print_octal(va_list, t_flags *);
-int				print_OCTAL(va_list, t_flags *);
-int				print_hex(va_list, t_flags *);
-int				print_HEX(va_list, t_flags *);
-int				check_hex(int, char);
+int	ft_printf(const char *format, ...);
+void	ft_assign_flags(char *format, t_flags *flags, int *i);
+void	search_width_prec(char *format, int *i, t_flags *flags, va_list list);
+void	ft_assign_mods(char *format, int *i, t_flags *flags);
+int	ft_convert(int i, char *format, char c);
+char	*print_space(char *format, t_flags *flags);
+void	manage_all(t_flags *flags, va_list list);
+char	*print_octal(unsigned long int nbr, t_flags *flags);	
 
 /*
 ** -------------------------- Parsing Function --------------------------------
 */
 
-int				parser(const char *format, va_list args, t_flags *pass);
-void			ft_init_pass(t_flags *pass);
+void	ft_init_flags(t_flags *flags);
+int	parser(char *format, int *i, t_flags *flags, va_list list);
+void	parse_format(const char *format, va_list list, int *chars_printed);
+
 
 /*
 ** --------------------------------  Flags -------------------------------------
 */
 
-void				ft_flag_parse(char *format, int *i, va_list args, t_flags *pass);
-int					ft_flag_width(va_list);
-int					ft_flag_plus(va_list);
+void	ft_apply_flagmods(char *format, t_flags *flags);
 
 /*
 ** ------------------------- Helping Functions --------------------------------
 */
 
-char			_memcpy(char *dst, char *src, unsigned int nbr);
+void		ft_putcharf(char c, t_flags *flags);
+size_t		nbrlen(int nbr, char *base);
+void		ft_putstrf(char *format, t_flags *flags, int i);
 unsigned int	base_length(unsigned int nbr, int base);
-void			write_string(char *str);
-void			putw_str(wchar_t *str);
-char			*str_rev(char *str);
-int				w_char(wchar_t c);
-int				ft_nbrlen(int c);
-void			ft_print_char(char c, int *ret);
-
-/*conver_t g_conversions[] = {
-	{"d", print_int},
-	{"D", print_int},
-	{"i", print_int},
-	{"c", print_char},
-	{"C", print_wchar_t},
-	{"s", print_string},
-	{"S", print_unicode},
-	{"b", print_binary},
-	{"p", print_memory_address},
-	{"u", unsigned_int},
-	{"U", unsigned_INT},
-	{"o", print_octal},
-	{"O", print_OCTAL},
-	{"x", print_hex},
-	{"X", print_HEX},
-	{"%", print_percent},
-	{"0", ft_flag_width},
-	{NULL, NULL}
-	};*/
+char		*str_rev(char *str);
 
 #endif
