@@ -13,5 +13,7 @@ int	main(void)
 //	printf("CPU test: %p\n", &a);
 	ft_printf("%p\n", &a);
 	ft_printf("%b\n", 10);
+	printf("CPU test: %c\n", 'A');
+	ft_printf("%c\n", 'A');
 	return (0);
 }
