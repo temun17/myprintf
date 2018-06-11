@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/31 21:25:03 by atemunov          #+#    #+#             */
-/*   Updated: 2018/06/11 11:24:29 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/06/11 11:59:18 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ char	*print_space(char *format, t_flags *flags);
 void	manage_all(t_flags *flags, va_list list);
 char	*print_octal(unsigned long int nbr, t_flags *flags);
 char	*print_memory_address(unsigned long int nbr, t_flags *flags);
+char	*print_binary(unsigned long int nbr, t_flags *flags);
 
 /*
 ** -------------------------- Parsing Function --------------------------------

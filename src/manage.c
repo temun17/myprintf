@@ -54,4 +54,6 @@ void	manage_all(t_flags *flags, va_list list)
 		ft_apply_flagmods(va_arg(list, char *), flags);
 	else if (flags->conversion == 'p')
 		ft_apply_flagmods(print_memory_address(va_arg(list, unsigned long int), flags), flags);
+	else if (flags->conversion == 'b')
+		ft_apply_flagmods(print_binary(va_arg(list, unsigned long int), flags), flags);
 }

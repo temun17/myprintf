@@ -1,22 +1,28 @@
 #include "ft_printf.h"
 
-/*int	print_string(va_list list, t_flags *flags)
+char	*print_binary(unsigned long int nbr, t_flags *flags)
 {
-	int	i;
-	char	*str;
-	
+	int		i;
+	int		length;
+	char	*s;
+
 	ft_bzero(flags, sizeof(t_flags));
+	length = base_length(nbr, 2);
+	s = malloc(sizeof(char) * length + 1);
 	i = 0;
-	str = va_arg(list, char *);
-	if (str == '\0')
-		str = "(NULL)";
-	while (str[i] != '\0')
+	while (nbr > 0)
 	{
-		ft_putchar(str[i]);
+		if (nbr % 2 == 0)
+			s[i] = '0';
+		else
+			s[i] = '1';
+		nbr /= 2;
 		i++;
 	}
-	return (i);
-} */
+	s[i] = '\0';
+	s = str_rev(s);
+	return (s);
+}
 
 /*int	print_hex(char *format, t_flags *flags, int i)
 {
