@@ -46,6 +46,29 @@
 	}
 	return (length); */
 
+char	*print_memory_address(unsigned long int nbr, t_flags *pass)
+{
+	char				*print;
+	unsigned int		i;
+	int					length;
+
+	ft_bzero(pass, sizeof(t_flags));
+	i = 0;
+	length = 0;
+	print = malloc(sizeof(char) * length + 1);
+	if (nbr == 0)
+		print[i] = '0';
+	while (nbr != 0)
+	{
+		print[i++] = H_LOWER[nbr % 16];
+		nbr /= 16;
+	}
+	print[i] = '\0';
+	print = str_rev(print);
+	print = ft_strjoin("0x", print);
+	return (print);
+}
+
 char	*print_octal(unsigned long int nbr, t_flags *flags)
 {
 	char			*num_rep;
