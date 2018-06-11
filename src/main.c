@@ -25,16 +25,18 @@ int	main(void)
 	i = -17;
 	j = 1234;
 
-	ft_printf("%%\n");
-	ft_printf("%c\n", 'A');
-	ft_printf("%C\n", 'a');
-	printf("%p\n", &a);
-	ft_printf("%p\n", &a);
-	printf("%c\n", 'a');
-	printf("%C\n", 'a');
-	printf("%25s\n", "Over Here!");
-	printf("%010d\n", a);
-	ft_printf("%010d\n", a);
+	printf(".%5.4d.\n", 123);
+	ft_printf(".%5.4d.\n", 123);
+//	ft_printf("%%\n");
+//	ft_printf("%c\n", 'A');
+//	ft_printf("%C\n", 'a');
+//	printf("%p\n", &a);
+//	ft_printf("%p\n", &a);
+//	printf("%c\n", 'a');
+//	printf("%C\n", 'a');
+//	printf("%25s\n", "Over Here!");
+//	printf("%010d\n", a);
+//	ft_printf("%010d\n", a);
 //	ft_printf("%25s\n", "Over Here!");
 //	printf("%5.3s\n", "swag");
 //	printf("%S\n", L"êêêêêêêêêêêê");

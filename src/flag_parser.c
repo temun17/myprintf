@@ -79,7 +79,7 @@ void	ft_convert(va_list args, t_flags *pass)
 		if (!ft_strcmp((g_conversions[i].opr), &(pass->type)))
 		{
 			//positive_width
-			g_conversions[i].f(args, *pass);
+			g_conversions[i].f(args, pass);
 			//negative width
 			//prec
 		}

@@ -18,14 +18,14 @@
  ********************************************************************
  **/
 
-int	print_binary(va_list list, t_flags pass)
+int	print_binary(va_list list, t_flags *pass)
 {
 	int				i;
 	int				length;
 	unsigned int	nbr;
 	char			*s;
 
-	ft_bzero(&pass, sizeof(t_flags));
+	ft_bzero(pass, sizeof(t_flags));
 	nbr = va_arg(list, unsigned int);
 	if (nbr == 0)
 		return (ft_putchar('0'));
@@ -54,14 +54,14 @@ int	print_binary(va_list list, t_flags pass)
  **
  **/
 
-int	print_octal(va_list list, t_flags pass)
+int	print_octal(va_list list, t_flags *pass)
 {
 	int				length;
 	unsigned int	nbr;
 	char			*num_rep;
 	int				i;
 
-	ft_bzero(&pass, sizeof(t_flags));
+	ft_bzero(pass, sizeof(t_flags));
 	nbr = va_arg(list, unsigned int);
 	if (nbr == 0)
 		return (ft_putchar('0'));
@@ -89,14 +89,14 @@ int	print_octal(va_list list, t_flags pass)
  **
  **/
 
-int	print_OCTAL(va_list list, t_flags pass)
+int	print_OCTAL(va_list list, t_flags *pass)
 {
 	int				length;
 	unsigned int	nbr;
 	char			*num_rep;
 	int				i;
 
-	ft_bzero(&pass, sizeof(t_flags));
+	ft_bzero(pass, sizeof(t_flags));
 	nbr = va_arg(list, unsigned int);
 	if (nbr == 0)
 		return (ft_putchar('0'));
@@ -137,14 +137,14 @@ int	check_hex(int n, char x)
 	return (0);
 }
 
-int print_hex(va_list list, t_flags pass)
+int print_hex(va_list list, t_flags *pass)
 {
 	unsigned int	nbr;
 	int				length;
 	char			*hex_deci;
 	char			temp;
 
-	ft_bzero(&pass, sizeof(t_flags));
+	ft_bzero(pass, sizeof(t_flags));
 	nbr = va_arg(list, unsigned int);
 	if (nbr == 0)
 		return (ft_putchar('0'));
@@ -168,14 +168,14 @@ int print_hex(va_list list, t_flags pass)
 	return (length);
 }
 
-int	print_HEX(va_list list, t_flags pass)
+int	print_HEX(va_list list, t_flags *pass)
 {
 	unsigned int	nbr;
 	int				length;
 	char			*hex_deci;
 	char			temp;
 
-	ft_bzero(&pass, sizeof(t_flags));
+	ft_bzero(pass, sizeof(t_flags));
 	nbr = va_arg(list, unsigned int);
 	if (nbr == 0)
 		return (ft_putchar('0'));
@@ -198,14 +198,14 @@ int	print_HEX(va_list list, t_flags pass)
 	return (length);
 }
 
-int	print_memory_address(va_list list, t_flags pass)
+int	print_memory_address(va_list list, t_flags *pass)
 {
 	char				*print;
 	unsigned int		i;
 	unsigned long int	nbr;
 	int					length;
 
-	ft_bzero(&pass, sizeof(t_flags));
+	ft_bzero(pass, sizeof(t_flags));
 	i = 0;
 	length = 0;
 	nbr = va_arg(list, unsigned long int);
@@ -224,7 +224,7 @@ int	print_memory_address(va_list list, t_flags pass)
 	return (*print);
 }
 
-int	print_unicode(va_list list, t_flags pass)
+int	print_unicode(va_list list, t_flags *pass)
 {
 	wchar_t	*fake_wide;
 	wchar_t *wide;
@@ -232,7 +232,7 @@ int	print_unicode(va_list list, t_flags pass)
 	char	org;
 	int	i;
 
-	ft_bzero(&pass, sizeof(t_flags));
+	ft_bzero(pass, sizeof(t_flags));
 	i = 0;
 	len = 0;
 	org = 0;
