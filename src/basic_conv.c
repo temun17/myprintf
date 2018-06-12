@@ -43,7 +43,7 @@ char	*print_memory_address(unsigned long int nbr, t_flags *pass)
 		nbr /= 16;
 	}
 	print[i] = '\0';
-	print = str_rev(print, -1, 0);
+	print = str_rev(print);
 	print = ft_strjoin("0x", print);
 	return (print);
 }
