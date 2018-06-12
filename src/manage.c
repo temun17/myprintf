@@ -113,4 +113,6 @@ void	manage_all(t_flags *flags, va_list list)
 		ft_putwtstr((ft_wctos(va_arg(list, wchar_t))), flags, 0);
 	else if (flags->conversion == 'x' || flags->conversion == 'X')
 		ft_apply_flagmods(typecast_hex(list, flags, 16), flags);
+	else if (flags->conversion == 'D')
+		ft_apply_flagmods(ft_itoa_umax(va_arg(list, long), 10, flags), flags);
 }

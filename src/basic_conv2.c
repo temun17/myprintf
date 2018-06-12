@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/11 14:49:42 by atemunov          #+#    #+#             */
-/*   Updated: 2018/06/11 16:41:40 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/06/12 16:26:04 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ char	*ft_itoa_umax(size_t nbr, int base, t_flags *flags)
 		return (NULL);
 	str[length] = '\0';
 	str[--length] = tmp[nbr % base];
+	while (nbr /= base)
+		str[--length] = tmp[nbr % base];
 	length = -1;
 	if (flags->conversion == 'X')
 		while (str[++length])

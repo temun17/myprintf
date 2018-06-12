@@ -27,9 +27,11 @@ int	main(void)
 //	ft_printf("%S\n", L"갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔");
 //	printf("%C\n", L'A');
 //	ft_printf("%C\n", L'A');
-	ft_printf("%04i\n", 42);
-	printf("%X\n", 10);
-	ft_printf("%X\n", 10);
+//	ft_printf("%04i\n", 42);
+//	printf("%X\n", 10);
+//	ft_printf("%X\n", 10);
+//	printf("%D\n", 1273598);
+	ft_printf("%D\n", 1273598);
 //	ft_printf("normal k =          [%kC ]\n", L'👼');
 // 	ft_printf("normal no k = [%S]\n", L"갔갔");
 	return (0);
