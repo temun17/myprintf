@@ -25,8 +25,11 @@ int	main(void)
 //	printf("%s\n", "100% des gens qui parlent à Ly adorent Ly.");
 //	ft_printf("%s\n", "100% des gens qui parlent à Ly adorent Ly.");
 //	ft_printf("%S\n", L"갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔갔");
-	printf("%C\n", L'A');
-	ft_printf("%C\n", L'A');
+//	printf("%C\n", L'A');
+//	ft_printf("%C\n", L'A');
+	ft_printf("%04i\n", 42);
+	printf("%X\n", 10);
+	ft_printf("%X\n", 10);
 //	ft_printf("normal k =          [%kC ]\n", L'👼');
 // 	ft_printf("normal no k = [%S]\n", L"갔갔");
 	return (0);

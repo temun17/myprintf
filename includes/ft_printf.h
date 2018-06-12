@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/31 21:25:03 by atemunov          #+#    #+#             */
-/*   Updated: 2018/06/12 12:22:06 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/06/12 15:25:35 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ char	*print_binary(unsigned long int nbr, t_flags *flags);
 int		get_snumlen(intmax_t nbr, int i);
 char	*ft_itoa_smax(intmax_t nbr);
 char	*typecast_mod(va_list list, t_flags *flags, int base);
+char	*typecast_hex(va_list list, t_flags *flags, int base);
 char	*ft_itoaf(int num, t_flags *flags, int len, int sign);
 char	*ft_itoa_umax(size_t nbr, int base, t_flags *flags);
 int		get_unumlen(size_t nbr, int base, int i);
