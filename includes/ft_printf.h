@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/31 21:25:03 by atemunov          #+#    #+#             */
-/*   Updated: 2018/06/11 17:01:02 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/06/12 12:22:06 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # include <locale.h>
 # include <wchar.h>
 # include <inttypes.h>
+# include <locale.h>
 
 /*
 ** -------------------------- Macros Definition --------------------------------
@@ -70,7 +71,9 @@ void	ft_assign_flags(char *format, t_flags *flags, int *i);
 void	search_width_prec(char *format, int *i, t_flags *flags, va_list list);
 void	ft_assign_mods(char *format, int *i, t_flags *flags);
 int	ft_convert(int i, char *format, char c);
-char	*print_space(char *format, t_flags *flags);
+char	*print_spaces(char *format, t_flags *flags);
+char	*print_zeros(char *format, t_flags *flags);
+char	*ft_pslice(char *format, t_flags *flags, int i);
 void	manage_all(t_flags *flags, va_list list);
 char	*print_octal(unsigned long int nbr, t_flags *flags);
 char	*print_memory_address(unsigned long int nbr, t_flags *flags);
@@ -102,10 +105,12 @@ void	ft_apply_flagmods(char *format, t_flags *flags);
 */
 
 void		ft_putcharf(char c, t_flags *flags);
-size_t		nbrlen(int nbr, char *base);
+int			nbrlen(int nbr, int i);
 void		ft_putstrf(char *format, t_flags *flags, int i);
 unsigned int	base_length(unsigned int nbr, int base);
 char		*str_rev(char *str);
 char		*ft_strdup_f(char *s1, int i);
-
+int			ft_putw_str(wchar_t *str);
+wchar_t		*ft_wctos(wchar_t wchar);
+void		ft_putwtstr(wchar_t *wide, t_flags *flags, int i);
 #endif

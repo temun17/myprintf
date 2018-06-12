@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/11 13:46:24 by atemunov          #+#    #+#             */
-/*   Updated: 2018/06/11 13:46:27 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/06/12 08:54:49 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,11 @@ void	ft_putcharf(char c, t_flags *flags)
 	flags->chars_printed = flags->chars_printed + 1;
 }
 
-size_t	nbrlen(int nbr, char *base)
+int		nbrlen(int nbr, int i)
 {
-	size_t	base_num;
-	unsigned int i;
+	int	base_num;
 	
-	base_num = ft_strlen(base);
-	i = 0;
+	base_num = 10;
 	while (nbr != 0)
 	{
 		nbr /= base_num;
