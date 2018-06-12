@@ -45,7 +45,7 @@ char	*print_memory_address(unsigned long int nbr, t_flags *pass)
 	print[i] = '\0';
 	print = str_rev(print);
 	print = ft_strjoin("0x", print);
-	print = ft_strjoin("0", print);
+	print = ft_strjoin(print, "0");
 	return (print);
 }
 
