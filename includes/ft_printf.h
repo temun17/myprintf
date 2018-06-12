@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/31 21:25:03 by atemunov          #+#    #+#             */
-/*   Updated: 2018/06/11 11:59:18 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/06/11 17:01:02 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@
 # define ISSTAR(x) (x == '*')
 # define ISLENMOD(x) (x == 'h' || x == 'l' || x == 'j' || x == 'z')
 # define FLAGS(x) (x == ' ' || x == '+' || x == '-' || x == '0' || x == '#')
+# define INT_MIN ("-2147483648")
 
 /*
 ** ------------------------- Structure Definition ------------------------------
@@ -74,6 +75,12 @@ void	manage_all(t_flags *flags, va_list list);
 char	*print_octal(unsigned long int nbr, t_flags *flags);
 char	*print_memory_address(unsigned long int nbr, t_flags *flags);
 char	*print_binary(unsigned long int nbr, t_flags *flags);
+int		get_snumlen(intmax_t nbr, int i);
+char	*ft_itoa_smax(intmax_t nbr);
+char	*typecast_mod(va_list list, t_flags *flags, int base);
+char	*ft_itoaf(int num, t_flags *flags, int len, int sign);
+char	*ft_itoa_umax(size_t nbr, int base, t_flags *flags);
+int		get_unumlen(size_t nbr, int base, int i);
 
 /*
 ** -------------------------- Parsing Function --------------------------------
@@ -99,5 +106,6 @@ size_t		nbrlen(int nbr, char *base);
 void		ft_putstrf(char *format, t_flags *flags, int i);
 unsigned int	base_length(unsigned int nbr, int base);
 char		*str_rev(char *str);
+char		*ft_strdup_f(char *s1, int i);
 
 #endif

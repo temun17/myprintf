@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   basic_conv.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/11 13:46:09 by atemunov          #+#    #+#             */
-/*   Updated: 2018/06/11 13:46:11 by atemunov         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "ft_printf.h"
 
 char	*print_binary(unsigned long int nbr, t_flags *flags)
@@ -36,33 +24,6 @@ char	*print_binary(unsigned long int nbr, t_flags *flags)
 	return (s);
 }
 
-/*int	print_hex(char *format, t_flags *flags, int i)
-{
-	unsigned int 	nbr;
-	int		length;
-	char		*hex_deci;
-	char		temp;
-	
-	ft_bzero(flags, sizeof(t_flags));
-	nbr = va_arg(format, unsigned int);
-	if (nbr == 0)
-		return (0);
-	else if (nbr < 1)
-		return (-1);
-	length = base_length(nbr, 16);
-	hex_deci = malloc(sizeof(char) * length + 1);
-	length = 0;
-	while (nbr > 0)
-	{
-		temp = nbr % 16;
-		if (temp < 10)
-			temp = temp + 48;
-		else
-			temp = temp + 87;
-		hex_deci[length++] = temp;
-		nbr /= 16;
-	}
-	return (length); */
 
 char	*print_memory_address(unsigned long int nbr, t_flags *pass)
 {
@@ -87,6 +48,34 @@ char	*print_memory_address(unsigned long int nbr, t_flags *pass)
 	return (print);
 }
 
+int		get_snumlen(intmax_t nbr, int i)
+{
+	while (nbr /= 10)
+		i++;
+	return (i);
+}
+
+char	*ft_itoa_smax(intmax_t nbr)
+{
+		char 		*str;
+		int			length;
+		uintmax_t	tmp;
+
+		length = get_snumlen(nbr, 1);
+		tmp = nbr;
+		if (nbr < 0)
+		{
+			tmp = -nbr;
+			length++;
+		}
+		if (!(str = (char *)malloc(sizeof(*str) * length)))
+			return (NULL);
+		str[length] = '\0';
+		str[--length] = tmp % 10 + '0';
+		(nbr < 0) ? str[0] = '-' : 0;
+		return (str);
+}
+		
 char	*print_octal(unsigned long int nbr, t_flags *flags)
 {
 	char			*num_rep;

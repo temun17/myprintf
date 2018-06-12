@@ -6,11 +6,15 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/11 13:46:19 by atemunov          #+#    #+#             */
-/*   Updated: 2018/06/11 13:46:21 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/06/11 13:54:41 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+/*
+** %[parameter][flags][width][.precision][length]type
+*/
 
 void	ft_init_flags(t_flags *flags)
 {

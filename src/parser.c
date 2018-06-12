@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/11 13:46:40 by atemunov          #+#    #+#             */
-/*   Updated: 2018/06/11 13:46:41 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/06/11 16:57:17 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 
 int	ft_convert(int i, char *format, char c)
 {
-	while (format[++i])
+	while (format[i])
 	{
 		if (c == format[i])
 			return (1);
+		(i)++;
 	}
 	return (0);
 }
@@ -92,7 +93,7 @@ int	parser(char *format, int *i, t_flags *flags, va_list list)
 	ft_assign_flags(format, flags, i);
 	search_width_prec(format, i, flags, list);
 	ft_assign_mods(format, i, flags);
-	if (ft_convert(-1, "cCdDisSpoOxXuUb", format[*i]))
+	if (ft_convert(0, "cCdDisSpoOxXuUb", format[*i]))
 	{
 		flags->c += 1;
 		flags->conversion = format[*i];

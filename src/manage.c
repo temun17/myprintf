@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   manage.c                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/11 13:46:33 by atemunov          #+#    #+#             */
-/*   Updated: 2018/06/11 13:46:35 by atemunov         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "ft_printf.h"
 
 /*
@@ -70,4 +58,6 @@ void	manage_all(t_flags *flags, va_list list)
 		ft_apply_flagmods(print_binary(va_arg(list, unsigned long int), flags), flags);
 	else if (flags->conversion == 'c')
 		ft_putcharf(va_arg(list, int), flags);
+	else if (flags->conversion == 'd' || flags->conversion == 'i')
+		ft_apply_flagmods(typecast_mod(list, flags, 10), flags);
 }

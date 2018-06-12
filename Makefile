@@ -6,7 +6,7 @@
 #    By: atemunov <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/11 13:45:05 by atemunov          #+#    #+#              #
-#    Updated: 2018/06/11 13:45:08 by atemunov         ###   ########.fr        #
+#    Updated: 2018/06/11 16:18:58 by atemunov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,15 +20,21 @@ INCLUDES = ./includes/
 
 SRC = src/ft_printf.c \
 	src/helping_f.c \
+	src/helping_f2.c \
 	src/parser.c \
 	src/manage.c \
 	src/basic_conv.c \
+	src/basic_conv2.c \
+	src/typecast.c \
 
 OBJS = src/ft_printf.o \
 	src/helping_f.o \
+	src/helping_f2.o \
 	src/parser.o \
 	src/manage.o \
 	src/basic_conv.o \
+	src/basic_conv2.o \
+	src/typecast.o \
 
 LIBFT = ./libft
 
