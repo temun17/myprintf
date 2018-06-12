@@ -36,7 +36,7 @@ char	*print_memory_address(unsigned long int nbr, t_flags *pass)
 	length = 0;
 	print = malloc(sizeof(char) * length + 1);
 	if (nbr == 0)
-		print[i] = '0';
+		print = "0";
 	while (nbr != 0)
 	{
 		print[i++] = H_LOWER[nbr % 16];
@@ -45,7 +45,6 @@ char	*print_memory_address(unsigned long int nbr, t_flags *pass)
 	print[i] = '\0';
 	print = str_rev(print);
 	print = ft_strjoin("0x", print);
-	print = ft_strjoin(print, "0");
 	return (print);
 }
 
