@@ -31,7 +31,9 @@ int	main(void)
 //	printf("%X\n", 10);
 //	ft_printf("%X\n", 10);
 //	printf("%D\n", 1273598);
-	ft_printf("%D\n", 1273598);
+//	ft_printf("%D\n", 1273598);
+//	printf("%o\n", 0);
+	ft_printf("%o\n", 0);
 //	ft_printf("normal k =          [%kC ]\n", L'👼');
 // 	ft_printf("normal no k = [%S]\n", L"갔갔");
 	return (0);
