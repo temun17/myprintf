@@ -92,7 +92,7 @@ void	ft_apply_flagmods(char *format, t_flags *flags)
 	flags->width -= ft_strlen(format);
 	format = print_spaces(format, flags);
 	format = (flags->hash && flags->conversion == 'x' && flags->zero) ? ft_strjoin("0x", format) : format;
-	format = (flags->has && flags->conversion == 'X' && flags->zero) ? ft_strjoin("0X", format) : format;
+	format = (flags->hash && flags->conversion == 'X' && flags->zero) ? ft_strjoin("0X", format) : format;
 	format = (flags->space && format[0] != '-') ? ft_strjoin(" ", format) : format;
 	ft_putstrf(format, flags, 0);
 } 	
