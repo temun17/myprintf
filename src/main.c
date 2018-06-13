@@ -43,7 +43,9 @@ int	main(void)
 //	ft_printf("%04.2i", 42);
 //	ft_printf("normal k =          [%kC ]\n", L'👼');
 //	printf("%%o\n Lydie == |%o|\n", 'L'+'y'+'d'+'i'+'e');
-	ft_printf("%%o\n Lydie == |%o|\n", 'L'+'y'+'d'+'i'+'e');
+//	ft_printf("%%o\n Lydie == |%o|\n", 'L'+'y'+'d'+'i'+'e');
+	ft_printf("%o\n", -0);
+	ft_printf("%o\n", 0);
 // 	ft_printf("normal no k = [%S]\n", L"갔갔");
 	return (0);
 }
