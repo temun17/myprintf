@@ -81,10 +81,10 @@ void	ft_apply_flagmods(char *format, t_flags *flags)
 		? ft_strjoin("0X", format) : format;
 	format = (flags->plus && flags->conversion == 'x' && !flags->zero)
 		? ft_strjoin("0x", format) : format;
+	(flags->space && format[0] != '-') ? flags->width -= 1 : 0;
 	(flags->plus && format[0] != '-') ? flags->width -= 1 : 0;
 	format = (flags->nbr) ? print_zeros(format, flags) : format;
 //	flags->width -= ft_strlen(format);
-	(flags->space && format[0] != '-') ? flags->width -= 1 : 0;
 	flags->precision -= ft_strlen(format);
 	format = (flags->plus && format[0] != '-') ? ft_strjoin("+", format) : format;
 	format = print_spaces(format, flags);
