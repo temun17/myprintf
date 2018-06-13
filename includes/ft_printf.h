@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/31 21:25:03 by atemunov          #+#    #+#             */
-/*   Updated: 2018/06/12 17:21:10 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/06/13 00:00:24 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,4 +114,5 @@ char		*ft_strdup_f(char *s1, int i);
 int			ft_putw_str(wchar_t *str);
 wchar_t		*ft_wctos(wchar_t wchar);
 void		ft_putwtstr(wchar_t *wide, t_flags *flags, int i);
+int			ft_atoif(const char *str, int i);
 #endif

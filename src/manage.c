@@ -33,8 +33,9 @@ char	*print_spaces(char *format, t_flags *flags)
 	i = 0;
 	ret[0] = format[0];
 	ret[1] = '\0';
-	if (format[0])
+	if (!format)
 		return (format);
+//	printf("%d\n", flags->width);
 	while (i < flags->width)
 	{
 		print[i] = (flags->zero) ? '0' : ' ';
@@ -82,7 +83,7 @@ void	ft_apply_flagmods(char *format, t_flags *flags)
 		? ft_strjoin("0x", format) : format;
 	(flags->plus && format[0] != '-') ? flags->width -= 1 : 0;
 	format = (flags->nbr) ? print_zeros(format, flags) : format;
-	flags->width -= ft_strlen(format);
+//	flags->width -= ft_strlen(format);
 	(flags->space && format[0] != '-') ? flags->width -= 1 : 0;
 	flags->precision -= ft_strlen(format);
 	format = (flags->plus && format[0] != '-') ? ft_strjoin("+", format) : format;

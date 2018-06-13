@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/11 16:18:01 by atemunov          #+#    #+#             */
-/*   Updated: 2018/06/12 17:20:48 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/06/13 00:01:48 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,22 @@ void	ft_putwtstr(wchar_t *wide, t_flags *flags, int i)
 			flags->zero ? write(1, "0", 1) : write(1, " ", 1);
 			flags->width -= 1;
 		}
+}
+
+int		ft_atoif(const char *str, int i)
+{
+	int num;
+	int sign;
+
+	num = 0;
+	sign = 1;
+	if (*(str + i) == '-')
+		sign = -1;
+	while (*(str + i) && *(str + i) >= '0' && *(str + i) <= '9')
+		num = num * 10 + (*(str + i++) - '0');
+	if (*(str + i) == '.')
+		num = num * 10 + (*(str + i++) - '0');
+	while (*(str + i) && *(str + i) >= '0' && *(str + i) <= '9')
+		num = num * 10 + (*(str + i++) - '0');
+	return (num * sign);
 }

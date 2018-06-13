@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/11 13:46:40 by atemunov          #+#    #+#             */
-/*   Updated: 2018/06/12 17:38:26 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/06/13 00:03:48 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ void	search_width_prec(char *format, int *i, t_flags *flags, va_list list)
 		}
 		else
 		{
-			flags->width = (ft_atoi(&format[*i]));
-			*i += nbrlen(ft_atoi(&format[*i]), 0);
+			flags->width = (ft_atoif(&format[*i], 0));
+			*i += nbrlen(ft_atoif(&format[*i], 0), 0);
 		}
 	}
 	else if (format[*i] == '.')
