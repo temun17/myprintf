@@ -10,7 +10,10 @@ char	*print_zeros(char *format, t_flags *flags)
 	if (flags->precision < 1)
 		return (format);
 	while (i < flags->precision)
+	{
 		spc[i] = '0';
+		i++;
+	}
 	spc[i] = '\0';
 	if (format[0] == '-')
 	{
@@ -33,7 +36,7 @@ char	*print_spaces(char *format, t_flags *flags)
 	i = 0;
 	ret[0] = format[0];
 	ret[1] = '\0';
-	if (!format)
+	if (!format || flags->width < 1)
 		return (format);
 	while (i < flags->width)
 	{
@@ -50,7 +53,6 @@ char	*print_spaces(char *format, t_flags *flags)
 		format = (flags->minus) ? ft_strjoin(format, print) : ft_strjoin(print, format);
 	return (format);
 }
-
 
 char	*ft_pslice(char *format, t_flags *flags, int i)
 {
@@ -73,6 +75,7 @@ void	ft_apply_flagmods(char *format, t_flags *flags)
 		ft_putstrf("(NULL)", flags, 0);
 		return ;
 	}
+	(flags->zero && flags->width) ? flags->width -= flags->precision : 0;
 	(format[0] == '-') ? flags->precision += 1 : 0;
 	if (!flags->nbr)
 		format = (flags->precision) ? ft_pslice(format, flags, 0) : format;
@@ -82,9 +85,9 @@ void	ft_apply_flagmods(char *format, t_flags *flags)
 		? ft_strjoin("0x", format) : format;
 	(flags->space && format[0] != '-') ? flags->width -= 1 : 0;
 	(flags->plus && format[0] != '-') ? flags->width -= 1 : 0;
+	flags->precision -= ft_strlen(format);
 	format = (flags->nbr) ? print_zeros(format, flags) : format;
 	flags->width -= ft_strlen(format);
-	flags->precision -= ft_strlen(format);
 	format = (flags->plus && format[0] != '-') ? ft_strjoin("+", format) : format;
 	format = print_spaces(format, flags);
 	format = (flags->plus && flags->conversion == 'x' && flags->zero) ? ft_strjoin("0x", format) : format;
