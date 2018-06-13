@@ -40,8 +40,10 @@ int	main(void)
 //	ft_printf("%x\n", 29);
 //	printf("% 4i\n", 42);
 //	ft_printf("%04.5i", 42);
-	ft_printf("%04.2i", 42);
+//	ft_printf("%04.2i", 42);
 //	ft_printf("normal k =          [%kC ]\n", L'👼');
+//	printf("%%o\n Lydie == |%o|\n", 'L'+'y'+'d'+'i'+'e');
+	ft_printf("%%o\n Lydie == |%o|\n", 'L'+'y'+'d'+'i'+'e');
 // 	ft_printf("normal no k = [%S]\n", L"갔갔");
 	return (0);
 }

@@ -88,11 +88,10 @@ char	*print_octal(unsigned long int nbr, t_flags *flags)
 	ft_bzero(flags, sizeof(t_flags));
 	flags->nbr += 1;
 	length = base_length(nbr, 8);
-	num_rep = malloc(sizeof(char) * length + 1);
+	num_rep = (char *)malloc(sizeof(char) * length + 1);
 	i = 0;
 	if (nbr == 0)
 		num_rep[i] = '0';
-	i++;
 	while (nbr > 0)
 	{
 		num_rep[i] = (nbr % 8) + 48;
