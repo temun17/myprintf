@@ -85,7 +85,7 @@ char	*print_octal(unsigned long int nbr, t_flags *flags)
 	unsigned int		length;
 	unsigned long int	i;
 	
-	ft_bzero(flags, sizeof(t_flags));
+//	ft_bzero(flags, sizeof(t_flags));
 	flags->nbr += 1;
 	length = base_length(nbr, 8);
 	num_rep = (char *)malloc(sizeof(char) * length + 1);
@@ -100,6 +100,6 @@ char	*print_octal(unsigned long int nbr, t_flags *flags)
 	}
 	num_rep[i] = '\0';
 	num_rep = str_rev(num_rep);
-	(i != 0 && flags->hash) ? num_rep = ft_strjoin("0", num_rep) : 0;
+	(flags->hash) ? num_rep = ft_strjoin("0", num_rep) : 0;
 	return (num_rep);
 } 

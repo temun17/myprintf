@@ -1,4 +1,5 @@
 #include "ft_printf.h"
+#include <limits.h>
 
 int	main(void)
 {
@@ -44,8 +45,9 @@ int	main(void)
 //	ft_printf("normal k =          [%kC ]\n", L'👼');
 //	printf("%%o\n Lydie == |%o|\n", 'L'+'y'+'d'+'i'+'e');
 //	ft_printf("%%o\n Lydie == |%o|\n", 'L'+'y'+'d'+'i'+'e');
-	ft_printf("%o\n", -0);
-	ft_printf("%o\n", 0);
+//	ft_printf("%o\n", -0);
+//	ft_printf("%o\n", 0);
 // 	ft_printf("normal no k = [%S]\n", L"갔갔");
+	ft_printf("%#o\n", INT_MAX);
 	return (0);
 }
