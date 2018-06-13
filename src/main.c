@@ -33,7 +33,11 @@ int	main(void)
 //	printf("%D\n", 1273598);
 //	ft_printf("%D\n", 1273598);
 //	printf("%o\n", 0);
-	ft_printf("%p\n", 0);
+//	ft_printf("%p\n", 0);
+//	printf("%10s\n", "cat");
+//	ft_printf("%10s\n", "cat");
+	printf("CPU test: %x\n", 29);
+	ft_printf("%x\n", 29);
 //	ft_printf("normal k =          [%kC ]\n", L'👼');
 // 	ft_printf("normal no k = [%S]\n", L"갔갔");
 	return (0);

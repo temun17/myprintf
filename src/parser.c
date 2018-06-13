@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/11 13:46:40 by atemunov          #+#    #+#             */
-/*   Updated: 2018/06/11 16:57:17 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/06/12 17:38:26 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	search_width_prec(char *format, int *i, t_flags *flags, va_list list)
 		}
 		else
 		{
-			flags->width = ft_atoi(&format[*i]);
+			flags->width = (ft_atoi(&format[*i]));
 			*i += nbrlen(ft_atoi(&format[*i]), 0);
 		}
 	}
@@ -100,16 +100,16 @@ int	parser(char *format, int *i, t_flags *flags, va_list list)
 	}
 	if (flags->p <= 1 && flags->c == 1 ? 1 : 0)
 		return (1);
-/*	else if (flags->width)
+	else if (flags->width)
 	{
 		flags->width = flags->width - 1;
 		(flags->width) ? ft_putcharf(format[*i], flags) : 0;
 		(flags->width) ? *i = *i + 1 : 0;
-		ft_putstr(print_space("", flags), flags);
+		ft_putstrf(print_spaces("", flags), flags, 0);
 	}
 	else if (flags->zero)
 	{
-		ft_putstr(print_zero("", flags), flags);
-	} */
+		ft_putstrf(print_zeros("", flags), flags, 0);
+	}
 	return (0);
 }

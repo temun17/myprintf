@@ -115,4 +115,6 @@ void	manage_all(t_flags *flags, va_list list)
 		ft_apply_flagmods(typecast_hex(list, flags, 16), flags);
 	else if (flags->conversion == 'D')
 		ft_apply_flagmods(ft_itoa_umax(va_arg(list, long), 10, flags), flags);
+	else if (flags->conversion == 'u' || flags->conversion == 'X')
+		ft_apply_flagmods(ft_itoa_umax(va_arg(list, intmax_t), 10, flags), flags);
 }
