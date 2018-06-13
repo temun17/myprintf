@@ -7,7 +7,7 @@ char	*print_zeros(char *format, t_flags *flags)
 
 	i = 0;
 	spc = (char*)malloc(sizeof(char) * flags->precision + 1);
-	if (!spc)
+	if (flags->precision < 1)
 		return (format);
 	while (i < flags->precision)
 		spc[i] = '0';
@@ -35,7 +35,6 @@ char	*print_spaces(char *format, t_flags *flags)
 	ret[1] = '\0';
 	if (!format)
 		return (format);
-//	printf("%d\n", flags->width);
 	while (i < flags->width)
 	{
 		print[i] = (flags->zero) ? '0' : ' ';
