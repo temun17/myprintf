@@ -100,6 +100,6 @@ char	*print_octal(unsigned long int nbr, t_flags *flags)
 	}
 	num_rep[i] = '\0';
 	num_rep = str_rev(num_rep);
-	(i != 0 && flags->plus) ? num_rep = ft_strjoin("0", num_rep) : 0;
+	(i != 0 && flags->hash) ? num_rep = ft_strjoin("0", num_rep) : 0;
 	return (num_rep);
 } 

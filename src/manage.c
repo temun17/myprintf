@@ -79,9 +79,9 @@ void	ft_apply_flagmods(char *format, t_flags *flags)
 	(format[0] == '-') ? flags->precision += 1 : 0;
 	if (!flags->nbr)
 		format = (flags->precision) ? ft_pslice(format, flags, 0) : format;
-	format = (flags->plus && flags->conversion == 'X' && !flags->zero)
+	format = (flags->hash && flags->conversion == 'X' && !flags->zero)
 		? ft_strjoin("0X", format) : format;
-	format = (flags->plus && flags->conversion == 'x' && !flags->zero)
+	format = (flags->hash && flags->conversion == 'x' && !flags->zero)
 		? ft_strjoin("0x", format) : format;
 	(flags->precision == ft_strlen(format)) ? flags->zero = 0 : 0;
 	(flags->space && format[0] != '-') ? flags->width -= 1 : 0;
@@ -91,8 +91,8 @@ void	ft_apply_flagmods(char *format, t_flags *flags)
 	format = (flags->plus && format[0] != '-') ? ft_strjoin("+", format) : format;
 	flags->width -= ft_strlen(format);
 	format = print_spaces(format, flags);
-	format = (flags->plus && flags->conversion == 'x' && flags->zero) ? ft_strjoin("0x", format) : format;
-	format = (flags->plus && flags->conversion == 'X' && flags->zero) ? ft_strjoin("0X", format) : format;
+	format = (flags->hash && flags->conversion == 'x' && flags->zero) ? ft_strjoin("0x", format) : format;
+	format = (flags->has && flags->conversion == 'X' && flags->zero) ? ft_strjoin("0X", format) : format;
 	format = (flags->space && format[0] != '-') ? ft_strjoin(" ", format) : format;
 	ft_putstrf(format, flags, 0);
 } 	
