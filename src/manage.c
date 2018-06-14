@@ -44,10 +44,10 @@ char	*print_spaces(char *format, t_flags *flags)
 		i++;
 	}
 	print[i] = '\0';
-	if ((print[0] == '-' || print[0] == '+') && flags->zero && flags->nbr)
+	if ((ret[0] == '-' || ret[0] == '+') && flags->zero && flags->nbr)
 	{
 		format = ft_strjoin(print, &format[1]);
-		format = ft_strjoin(print, format);
+		format = ft_strjoin(ret, format);
 	}
 	else
 		format = (flags->minus) ? ft_strjoin(format, print) : ft_strjoin(print, format);
@@ -88,8 +88,8 @@ void	ft_apply_flagmods(char *format, t_flags *flags)
 	(flags->plus && format[0] != '-') ? flags->width -= 1 : 0;
 	flags->precision -= ft_strlen(format);
 	format = (flags->nbr) ? print_zeros(format, flags) : format;
-	format = (flags->plus && format[0] != '-') ? ft_strjoin("+", format) : format;
 	flags->width -= ft_strlen(format);
+	format = (flags->plus && format[0] != '-') ? ft_strjoin("+", format) : format;
 	format = print_spaces(format, flags);
 	format = (flags->hash && flags->conversion == 'x' && flags->zero) ? ft_strjoin("0x", format) : format;
 	format = (flags->hash && flags->conversion == 'X' && flags->zero) ? ft_strjoin("0X", format) : format;

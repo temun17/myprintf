@@ -49,7 +49,8 @@ int	main(void)
 //	ft_printf("%o\n", 0);
 // 	ft_printf("normal no k = [%S]\n", L"갔갔");
 //	ft_printf("%#o\n", INT_MAX);
-	ft_printf("%s\n", "pouet pouet camembert !!");
+//	ft_printf("%s\n", "pouet pouet camembert !!");
+	ft_printf("%+04d\n", 42);
 //	printf("%s\n", "pouet pouet camembert !!");
 	return (0);
 }

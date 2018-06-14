@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/11 14:49:42 by atemunov          #+#    #+#             */
-/*   Updated: 2018/06/12 16:26:04 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/06/13 22:45:42 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_itoaf(int num, t_flags *flags, int len, int sign)
 
 	sign = num;
 	if (num == 0 && flags->p)
-		return ("");
+		return (" ");
 	while (sign /= 10)
 		len++;
 	sign = num < 0 ? 1 : 0;
