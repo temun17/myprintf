@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/11 13:46:19 by atemunov          #+#    #+#             */
-/*   Updated: 2018/06/13 22:35:01 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/06/13 22:41:27 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_init_flags(t_flags *flags)
 	flags->plus = 0;
 	flags->zero = 0;
 	flags->space = 0;
-	flags->precision = -1;
+	flags->precision = 0;
 	flags->conversion = 0;
 	flags->width = 0;
 	flags->modifier = 0;

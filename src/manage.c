@@ -78,7 +78,7 @@ void	ft_apply_flagmods(char *format, t_flags *flags)
 //	(flags->zero && flags->width) ? flags->width -= flags->precision : 0;
 	(format[0] == '-') ? flags->precision += 1 : 0;
 	if (!flags->nbr)
-		format = (flags->precision + 1) ? ft_pslice(format, flags, 0) : format;
+		format = (flags->precision) ? ft_pslice(format, flags, 0) : format;
 	format = (flags->hash && flags->conversion == 'X' && !flags->zero)
 		? ft_strjoin("0X", format) : format;
 	format = (flags->hash && flags->conversion == 'x' && !flags->zero)
