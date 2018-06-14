@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/11 13:46:40 by atemunov          #+#    #+#             */
-/*   Updated: 2018/06/13 02:29:04 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/06/14 00:29:53 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,24 +25,36 @@ int	ft_convert(int i, char *format, char c)
 
 void	ft_assign_mods(char *format, int *i, t_flags *flags)
 {
-	if (format[0] == 'h' && format[1] == 'h')
+	if (format[*i] == 'h' && format[*i + 1] == 'h')
 	{
 		flags->modifier = 1;
-		(*i)++;
+		(*i += 2);
 	}
-	else if (format[0] == 'h')
+	else if (format[*i] == 'h')
+	{
 		flags->modifier = 2;
-	else if (format[0] == 'l' && format[1] ==  'l')
+		(*i += 1);
+	}
+	else if (format[*i] == 'l' && format[*i + 1] ==  'l')
 	{
 		flags->modifier = 4;
-		(*i)++;
+		(*i += 2);
 	}
-	else if (format[0] == 'l')
+	else if (format[*i] == 'l')
+	{
 		flags->modifier = 3;
-	else if (format[0] == 'j')
+		(*i += 1);
+	}
+	else if (format[*i] == 'j')
+	{
 		flags->modifier = 5;
-	else if (format[0] == 'z')
+		(*i += 1);
+	}
+	else if (format[*i] == 'z')
+	{
 		flags->modifier = 6;
+		(*i += 1);
+	}
 }
 
 void	search_width_prec(char *format, int *i, t_flags *flags, va_list list)
