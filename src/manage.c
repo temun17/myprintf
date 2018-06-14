@@ -72,7 +72,7 @@ void	ft_apply_flagmods(char *format, t_flags *flags)
 {
 	if (!format)
 	{
-		ft_putstrf("(NULL)", flags, 0);
+		ft_putstrf("(null)", flags, 0);
 		return ;
 	}
 //	(flags->zero && flags->width) ? flags->width -= flags->precision : 0;

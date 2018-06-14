@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/11 13:46:24 by atemunov          #+#    #+#             */
-/*   Updated: 2018/06/12 08:54:49 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/06/13 22:38:36 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	ft_putstrf(char *format, t_flags *flags, int i)
 {
 	if (!format)
 	{
-		write(1, "(NULL)", 6);
+		write(1, "(null)", 6);
 		return ;
 	}
 	while (format[i])
