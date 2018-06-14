@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/11 16:18:01 by atemunov          #+#    #+#             */
-/*   Updated: 2018/06/14 00:35:10 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/06/14 00:37:08 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,6 @@ void	ft_putwtstr(wchar_t *wide, t_flags *flags, int i)
 		}
 	while (wide[i])
 	{
-		if (flags->precision && flags->precision < ft_putw_str(wide))
-		{
-				ft_putcharf(wide[i], flags);
-		}
 		ft_putcharf(wide[i], flags);
 		i++;
 		flags->chars_printed += 1;
