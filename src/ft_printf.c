@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/11 13:46:19 by atemunov          #+#    #+#             */
-/*   Updated: 2018/06/13 22:41:27 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/06/14 23:34:55 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	parse_format(const char *format, va_list list, int *chars_printed)
 			else if (format[i])
 				ft_putcharf(format[i], &flags);
 		}
-		else if (i < ft_strlen((char *)format))
+		else if ((size_t)i < ft_strlen((char *)format))
 			ft_putcharf(format[i], &flags);
 		*chars_printed += flags.chars_printed;
 		i++; 

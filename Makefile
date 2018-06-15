@@ -6,7 +6,7 @@
 #    By: atemunov <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/11 13:45:05 by atemunov          #+#    #+#              #
-#    Updated: 2018/06/11 16:18:58 by atemunov         ###   ########.fr        #
+#    Updated: 2018/06/14 23:30:20 by atemunov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = libftprintf.a
 
 CC = gcc
 
-CFLAGS = -g
+CFLAGS = -g -Wall -Werror -Wextra
 
 INCLUDES = ./includes/
 
