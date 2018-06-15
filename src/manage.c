@@ -2,7 +2,7 @@
 
 char	*print_zeros(char *format, t_flags *flags)
 {
-	char	*spc;
+	char	*spc[flags->precision + 1];
 	int		i;
 
 	i = 0;
@@ -23,7 +23,6 @@ char	*print_zeros(char *format, t_flags *flags)
 	else
 		format = ft_strjoin(spc, format);
 	flags->zero = 0;
-	free(spc);
 	return (format);
 }
 
