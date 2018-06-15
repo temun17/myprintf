@@ -53,7 +53,8 @@ int	main(void)
 //	ft_printf("%s\n", "pouet pouet camembert !!");
 //	ft_printf("%+04d\n", 42);
 //	ft_printf("%ls", wz);
-	ft_printf("%d %C %s %d %u %X %c\n", 0, L'D', "swag", 15, 15, 15, 'p');
+//	ft_printf("%d %C %s %d %u %X %c\n", 0, L'D', "swag", 15, 15, 15, 'p');
 //	printf("%s\n", "pouet pouet camembert !!");
-	return (0);
+	printf("%d\n", 18446744073709486080);
+return (0);
 }
