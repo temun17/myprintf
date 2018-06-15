@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/11 14:12:09 by atemunov          #+#    #+#             */
-/*   Updated: 2018/06/14 19:32:09 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/06/14 19:33:57 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char	*typecast_hex(va_list list, t_flags *flags, int base)
 	else if (flags->modifier == 5)
 		return (ft_itoa_umax(va_arg(list, intmax_t), base, flags));
 	else if (flags->modifier == 4)
-		return (ft_itoa_umax(va_arg(list, long long), base, flags));
+		return (ft_ullitoaif(va_arg(list, long long), base, flags));
 	else if (flags->modifier == 3)
 		return (ft_itoa_umax(va_arg(list, long), base, flags));
 	else if (flags->modifier== 1)
