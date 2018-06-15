@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/31 21:25:03 by atemunov          #+#    #+#             */
-/*   Updated: 2018/06/13 03:30:59 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/06/14 19:00:57 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,8 @@ char	*ft_itoa_smax(intmax_t nbr);
 char	*typecast_mod(va_list list, t_flags *flags, int base);
 char	*typecast_hex(va_list list, t_flags *flags, int base);
 char	*ft_itoaf(int num, t_flags *flags, int len, int sign);
-char	*ft_itoa_umax(size_t nbr, int base, t_flags *flags);
-int		get_unumlen(size_t nbr, int base, int i);
+char	*ft_itoa_umax(unsigned int nbr, int base, t_flags *flags);
+int		get_unumlen(unsigned int nbr, int base, int i);
 
 /*
 ** -------------------------- Parsing Function --------------------------------

@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/11 14:49:42 by atemunov          #+#    #+#             */
-/*   Updated: 2018/06/13 22:45:42 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/06/14 19:02:12 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,19 +39,19 @@ char	*ft_itoaf(int num, t_flags *flags, int len, int sign)
 	return (str);
 }
 
-int		get_unumlen(size_t nbr, int base, int i)
+int		get_unumlen(unsigned int nbr, int base, int i)
 {
 	while (nbr /= base)
 		i++;
 	return (i);
 }
 
-char	*ft_itoa_umax(size_t nbr, int base, t_flags *flags)
+char	*ft_itoa_umax(unsigned int nbr, int base, t_flags *flags)
 {
 	char	*str;
 	int		length;
 	char	*tmp;
-
+	
 	tmp = ft_strdup_f(H_LOWER, -1);
 	flags->nbr += 1;
 	length = get_unumlen(nbr, base, 1);
