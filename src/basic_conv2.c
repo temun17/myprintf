@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/11 14:49:42 by atemunov          #+#    #+#             */
-/*   Updated: 2018/06/14 19:19:15 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/06/14 19:22:57 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ char	*ft_ullitoaif(unsigned long long int nbr)
 	char						*str;
 
 	count = 1;
-	tmp = number;
+	tmp = nbr;
 	while (tmp /= 10)
 		count++;
 	if (!(str = ft_strnew(count)))
