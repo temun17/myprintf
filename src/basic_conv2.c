@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/11 14:49:42 by atemunov          #+#    #+#             */
-/*   Updated: 2018/06/14 19:26:41 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/06/14 19:36:48 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,12 @@ char	*ft_ullitoaif(unsigned long long int nbr, int base, t_flags *flags)
 	unsigned long long int		tmp;
 	unsigned int				count;
 	char						*str;
+	int							length;
 
 	count = 1;
+	flags->nbr += 1;
+	length = get_unumlen(nbr, base, 1);
+	nbr == 0 ? flags->plus = 0 : 0;
 	tmp = nbr;
 	while (tmp /= 10)
 		count++;
