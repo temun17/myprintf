@@ -5,6 +5,7 @@ int	main(void)
 {
 	int a;
 	wchar_t wz [3] = L"@@";
+	unsigned long c = -125;
 
 	a = 23;
 //	ft_printf("%%\n");
@@ -31,7 +32,7 @@ int	main(void)
 //	ft_printf("%C\n", L'A');
 //	ft_printf("%04i\n", 42);
 //	printf("%X\n", 10);
-//	ft_printf("%X\n", 10);
+	ft_printf("%X\n", 10);
 //	printf("%D\n", 1273598);
 //	ft_printf("%D\n", 1273598);
 //	printf("%o\n", 0);
@@ -55,6 +56,7 @@ int	main(void)
 //	ft_printf("%ls", wz);
 //	ft_printf("%d %C %s %d %u %X %c\n", 0, L'D', "swag", 15, 15, 15, 'p');
 //	printf("%s\n", "pouet pouet camembert !!");
-	printf("%d\n", 18446744073709486080);
+	printf("unsigned long	c = %lu sizeof c = %lu\n", c, sizeof(c));
+	ft_printf("unsigned long	c = %lu sizeof c = %lu\n", c, sizeof(c));
 return (0);
 }
