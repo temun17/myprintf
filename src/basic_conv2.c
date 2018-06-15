@@ -6,7 +6,7 @@
 /*   By: atemunov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/11 14:49:42 by atemunov          #+#    #+#             */
-/*   Updated: 2018/06/14 19:22:57 by atemunov         ###   ########.fr       */
+/*   Updated: 2018/06/14 19:26:41 by atemunov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ char	*ft_itoa_umax(unsigned int nbr, int base, t_flags *flags)
 	return (str);
 }
 
-char	*ft_ullitoaif(unsigned long long int nbr)
+char	*ft_ullitoaif(unsigned long long int nbr, int base, t_flags *flags)
 {
 	unsigned long long int		tmp;
 	unsigned int				count;
