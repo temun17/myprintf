@@ -2,11 +2,10 @@
 
 char	*print_zeros(char *format, t_flags *flags)
 {
-	char	*spc[flags->precision + 1];
+	char	spc[flags->precision + 1];
 	int		i;
 
 	i = 0;
-	spc = (char*)malloc(sizeof(char) * flags->precision + 1);
 	if (flags->precision < 1)
 		return (format);
 	while (i < flags->precision)
